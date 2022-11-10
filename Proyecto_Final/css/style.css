@@ -9963,3 +9963,83 @@ h6,
 .texto_blanco{
   color: white;
 }
+
+.contenedor {
+  width: 50%;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.seccion {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.contenido-centrado {
+  max-width: 80rem;
+}
+
+.alerta {
+  padding: .5rem;
+  text-align: center;
+  color:white;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  background-color:red;
+}
+
+.formulario p {
+      font-size: 1.4rem;
+      color:var(--gray-dark);
+      margin: 2rem 0 0 0;
+}
+
+.formulario legend {
+      font-size: 2rem;
+      color:var(--gray-dark);
+  }
+
+  .formulario label {
+      font-weight: 700;
+      text-transform: uppercase;
+      display: block;
+  }
+
+    textarea {
+      height: 20rem;
+  }
+
+  .formulario input[type="radio"] {
+      margin: 0;
+      width: auto;
+  }
+
+  .formulario input:not([type="submit"], [type="checkbox"]){
+      padding: 1rem;
+      display: block;
+      width: 100%;
+      background-color: #FFFFFF;
+      border: 1px solid #e1e1e1;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+  }
+
+.boton-verde {
+  background-color: #71B100;
+  color: #FFFFFF;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  text-align: center;
+  margin-top: 2rem;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+.boton-verde :hover {
+  background-color:var(--gray-dark);
+}
+
+
