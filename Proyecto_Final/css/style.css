@@ -3223,7 +3223,7 @@ input[type="button"].btn-block {
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #2878EB;
+  background-color: #F28524;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
@@ -9964,6 +9964,11 @@ h6,
   color: white;
 }
 
+
+.tituloRojo{
+  color: var(--red);
+}
+
 .contenedor {
   width: 50%;
   max-width: 80rem;
@@ -10041,5 +10046,4 @@ h6,
 .boton-verde :hover {
   background-color:var(--gray-dark);
 }
-
 
