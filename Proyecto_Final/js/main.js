@@ -143,3 +143,18 @@ $('.message a').click(function(){
     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 });
  ///////////////////////////////LOGIN FIN
+
+
+////////////////////PERFIL
+$(document).ready(function(){
+    
+    $('.menu').on('click', function() {
+		$('.bar').toggleClass('animate');
+        $('.expand-menu').toggleClass('animate');
+        $('.expand-menu .nav-link').toggleClass('animate');
+        setTimeout(function(){
+            $('.expand-menu .nav-link').toggleClass('animate-show');
+        },500)
+	})
+    
+})
