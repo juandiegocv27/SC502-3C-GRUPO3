@@ -135,3 +135,11 @@
     
 })(jQuery);
 
+
+
+
+///////////////////////////////LOGIN INICIO
+$('.message a').click(function(){
+    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});
+ ///////////////////////////////LOGIN FIN
