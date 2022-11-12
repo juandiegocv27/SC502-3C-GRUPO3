@@ -7,7 +7,7 @@ use Canguro_DB;					#usar base de datos
 ############ TABLAS
 create table usuario(			
 id_usuario int Primary Key,
-rol varchar(50),
+rol int,
 nombre varchar(50), 
 apellido1 varchar(50),
 apellido2 varchar(50),
