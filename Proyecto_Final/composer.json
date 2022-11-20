@@ -1,0 +1,22 @@
+{
+    "name": "catta/proyecto_web_cliente_servidor",
+    "description": "Proyecto PHP 8, MVC, SQL, Ajax",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models",
+            "Classes\\" : "./classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "Catalina RObles",
+            "email": "catta30@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    }
+}
