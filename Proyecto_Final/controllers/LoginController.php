@@ -18,6 +18,8 @@ class LoginController {
                 // Comprobar que exista el usuario
                 $usuario = Usuario::where('email', $auth->email);
 
+                debuguear ($usuario);
+
                 if($usuario) {
                     // Verificar el password
                     if( $usuario->comprobarPasswordAndVerificado($auth->password) ) {
@@ -25,13 +27,13 @@ class LoginController {
                         session_start();
 
                         $_SESSION['id'] = $usuario->id;
-                        $_SESSION['nombre'] = $usuario->nombre . " " . $usuario->apellido;
+                        $_SESSION['nombre'] = $usuario->nombre . " " . $usuario->apellido1;
                         $_SESSION['email'] = $usuario->email;
                         $_SESSION['login'] = true;
 
                         // Redireccionamiento
-                        if($usuario->admin === "1") {
-                            $_SESSION['admin'] = $usuario->admin ?? null;
+                        if($usuario->rol === "1") {
+                            $_SESSION['admin'] = $usuario->rol ?? null;
                             header('Location: /admin');
                         } else {
 
@@ -54,6 +56,8 @@ class LoginController {
             'alertas' => $alertas
         ]);
     }
+
+
 
     public static function logout() {
         session_start();
@@ -209,5 +213,9 @@ class LoginController {
         $router->render('auth/confirmar-cuenta', [
             'alertas' => $alertas
         ]);
+    }
+
+    public static function principal (Router $router){
+        $router->render('/index-general');
     }
 }

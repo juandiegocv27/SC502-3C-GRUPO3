@@ -5,7 +5,7 @@ namespace Model;
 class Usuario extends ActiveRecord {
     //Base Datos
     protected static $tabla = 'usuarios';
-    protected static $columnasDB = ['id', 'email', 'password', 'token', 'confirmado', 'rol', 'fechaNacimiento', 'direccion', 'cedula', 'telefono', 'apellido2', 'apellido1','nombre', 'novedades'];
+    protected static $columnasDB = ['id', 'email', 'password', 'token', 'confirmado', 'rol', 'fechaNacimiento', 'direccion', 'cedula', 'telefono', 'apellido2', 'apellido1','nombre', 'imagen'];
     
     public $id;
     public $email;
@@ -20,7 +20,7 @@ class Usuario extends ActiveRecord {
     public $apellido2;
     public $apellido1;
     public $nombre;
-    public $novedades;
+    public $imagen;
 
     public function __construct($args = []) {
         $this->id = $args['id'] ?? null;
@@ -36,7 +36,7 @@ class Usuario extends ActiveRecord {
         $this->apellido1 = $args['apellido1'] ?? '';
         $this->apellido2 = $args['apellido2'] ?? '';
         $this->nombre = $args['nombre'] ?? '';
-        $this->novedades = $args['novedades'] ?? '0';
+        $this->imagen = $args['imagen'] ?? '';
     }
 
     // Mensajes de validación para la creación de una cuenta
@@ -50,24 +50,24 @@ class Usuario extends ActiveRecord {
         if(!$this->apellido2) {
             self::$alertas['error'][] = 'El Segundo Apellido es Obligatorio';
         }
-        // if(!$this->cedula) {
-        //     self::$alertas['error'][] = 'La Cédula es Obligatoria';
-        // }
+        if(!$this->cedula) {
+            self::$alertas['error'][] = 'La Cédula es Obligatoria';
+        }
         if(!$this->email) {
             self::$alertas['error'][] = 'El Email es Obligatorio';
         }
-        // if(!$this->telefono) {
-        //     self::$alertas['error'][] = 'El Teléfono es Obligatorio';
-        // }
-        // if(strlen($this->telefono) === 8) {
-        //     self::$alertas['error'][] = 'El Telefono debe contener 8 caracteres';
-        // }
-        // if(!$this->direccion) {
-        //     self::$alertas['error'][] = 'La Dirección es Obligatoria';
-        // }
-        // if(!$this->fechaNacimiento) {
-        //     self::$alertas['error'][] = 'La fecha de Nacimiento es Obligatoria';
-        // }
+        if(!$this->telefono) {
+            self::$alertas['error'][] = 'El Teléfono es Obligatorio';
+        }
+        if(strlen($this->telefono) === 7) {
+            self::$alertas['error'][] = 'El Telefono debe contener 8 caracteres';
+        }
+        if(!$this->direccion) {
+            self::$alertas['error'][] = 'La Dirección es Obligatoria';
+        }
+        if(!$this->fechaNacimiento) {
+            self::$alertas['error'][] = 'La fecha de Nacimiento es Obligatoria';
+        }
         if(!$this->password) {
             self::$alertas['error'][] = 'El Password es Obligatorio';
         }

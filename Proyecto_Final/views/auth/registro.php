@@ -24,26 +24,26 @@
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre" placeholder="Tu Nombre" id="nombre">
         
-        <label for="text">Primer Apellido</label>
+        <label for="apellido1">Primer Apellido</label>
         <input type="text" name="apellido1" placeholder="Tu Primer Apellido" id="apellido1">
         
-        <label for="text">Segundo Apellido</label>
+        <label for="apellido2">Segundo Apellido</label>
         <input type="text" name="apellido2" placeholder="Tu Segundo Apellido" id="apellido2">
         
-        <label for="text">Cédula</label>
-        <input type="text" name="ced" placeholder="Tu Número de Cédula" id="ced">
+        <label for="cedula">Cédula</label>
+        <input type="text" name="cedula" placeholder="Tu Número de Cédula" id="cedula">
         
         <label for="email">E-mail</label>
         <input type="email" name="email" placeholder="Tu Email" id="email">
 
-        <label for="phone">Teléfono</label>
-        <input type="tel" id="phone" placeholder="99999999" name="phone" pattern="[0-9]{8}">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="phtelefonoone" placeholder="99999999" name="telefono" pattern="[0-9]{8}">
 
-        <label for="direc">Dirección</label>
-        <input type="text" name="direc" placeholder="Tu Dirección" id="direc">
+        <label for="direccion">Dirección</label>
+        <input type="text" name="direccion" placeholder="Tu Dirección" id="direccion">
         
-        <label for="birthdaytime">Fecha de nacimiento</label>
-        <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+        <label for="fechaNacimiento">Fecha de nacimiento</label>
+        <input type="datetime-local" id="fechaNacimiento" name="fechaNacimiento">
 
         <label for="password">Contraseña</label>
         <input type="password" name="password" placeholder="Tu Contraseña" id="password">

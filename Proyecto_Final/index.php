@@ -7,6 +7,8 @@ use MVC\Router;
 
 $router = new Router();
 
+$router->GET('/',[LoginController::class,'principal']);
+
 $router->GET('/login',[LoginController::class,'login']);
 $router->POST('/login',[LoginController::class,'login']);
 $router->GET('/logout',[LoginController::class,'logout']);
@@ -17,3 +19,4 @@ $router->POST('/registro',[LoginController::class,'crear']);
 $router->comprobarRutas();
 
 ?>
+
