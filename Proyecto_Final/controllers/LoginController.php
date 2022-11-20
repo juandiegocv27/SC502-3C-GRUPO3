@@ -13,12 +13,9 @@ class LoginController {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $auth = new Usuario($_POST);
             $alertas = $auth->validarLogin();
-
             if(empty($alertas)) {
                 // Comprobar que exista el usuario
                 $usuario = Usuario::where('email', $auth->email);
-
-                debuguear ($usuario);
 
                 if($usuario) {
                     // Verificar el password
