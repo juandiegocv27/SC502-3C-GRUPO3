@@ -25,11 +25,11 @@ class Email {
          $mail->Host = 'smtp.mailtrap.io';
          $mail->SMTPAuth = true;
          $mail->Port = 2525;
-         $mail->Username = '4ec54dfb980a42';
-         $mail->Password = 'ae938c99960f22';
+         $mail->Username = '3790b69a6ae947';
+         $mail->Password = 'd8ec8d9b814981';
      
-         $mail->setFrom('cuentas@appsalon.com');
-         $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
+         $mail->setFrom('admin@cangurocr.com');
+         $mail->addAddress('admin@cangurocr.com', 'cangurocr.com');
          $mail->Subject = 'Confirma tu Cuenta';
 
          // Set HTML
@@ -37,7 +37,7 @@ class Email {
          $mail->CharSet = 'UTF-8';
 
          $contenido = '<html>';
-         $contenido .= "<p><strong>Hola " . $this->email .  "</strong> Has Creado tu cuenta en App Salón, solo debes confirmarla presionando el siguiente enlace</p>";
+         $contenido .= "<p><strong>Hola " . $this->email .  "</strong> Has Creado tu cuenta en Casa Canguro, solo debes confirmarla presionando el siguiente enlace</p>";
          $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a>";        
          $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje</p>";
          $contenido .= '</html>';
@@ -56,11 +56,11 @@ class Email {
         $mail->Host = 'smtp.mailtrap.io';
         $mail->SMTPAuth = true;
         $mail->Port = 2525;
-        $mail->Username = '4ec54dfb980a42';
-        $mail->Password = 'ae938c99960f22';
-    
-        $mail->setFrom('cuentas@appsalon.com');
-        $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
+        $mail->Username = '3790b69a6ae947';
+        $mail->Password = 'd8ec8d9b814981';
+     
+        $mail->setFrom('admin@cangurocr.com');
+        $mail->addAddress('admin@cangurocr.com', 'cangurocr.com');
         $mail->Subject = 'Reestablece tu password';
 
         // Set HTML
@@ -77,4 +77,6 @@ class Email {
             //Enviar el mail
         $mail->send();
     }
+
+    
 }
