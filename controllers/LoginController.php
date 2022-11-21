@@ -29,13 +29,14 @@ class LoginController {
                         $_SESSION['login'] = true;
 
                         // Redireccionamiento
-                        if($usuario->rol === "1") {
+                        if($usuario->rol === "1") { //1:Admin
                             $_SESSION['admin'] = $usuario->rol ?? null;
                             header('Location: /admin');
-                        } else {
-
-                            echo "Usuario correo@correo ingresó.";
-                            //header('Location: /cita');
+                        } elseif($usuario->rol === "2") { //2:Profesor 
+                            $_SESSION['profesor'] = $usuario->rol ?? null;
+                            header('Location: /profesor_principal');
+                        } else{ //0:Estudiante
+                            header('Location: /estudiante_principal');
                         }
 
                         // Aqui se hace el redireccionamiento por rol 
@@ -54,8 +55,6 @@ class LoginController {
         ]);
     }
 
-
-
     public static function logout() {
         session_start();
         $_SESSION = [];
@@ -63,16 +62,14 @@ class LoginController {
     }
 
     public static function olvide(Router $router) {
-
         $alertas = [];
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $auth = new Usuario($_POST);
             $alertas = $auth->validarEmail();
-
+            
             if(empty($alertas)) {
                  $usuario = Usuario::where('email', $auth->email);
-
                  if($usuario && $usuario->confirmado === "1") {
                         
                     // Generar un token
@@ -87,11 +84,10 @@ class LoginController {
                     Usuario::setAlerta('exito', 'Revisa tu email');
                  } else {
                      Usuario::setAlerta('error', 'El Usuario no existe o no esta confirmado');
-                     
                  }
             } 
         }
-
+       
         $alertas = Usuario::getAlertas();
 
         $router->render('auth/olvide-password', [
@@ -169,7 +165,7 @@ class LoginController {
 
                     // Crear el usuario
                     $resultado = $usuario->guardar();
-                    // debuguear($usuario);
+
                     if($resultado) {
                         header('Location: /mensaje');
                     }
