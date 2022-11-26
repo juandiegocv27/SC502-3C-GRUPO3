@@ -1,3 +1,4 @@
+// autoload: Importa en las diferentes paginas las dependencias que tenga de otras
 {
     "name": "catta/proyecto_web_cliente_servidor",
     "description": "Proyecto PHP 8, MVC, SQL, Ajax",
@@ -20,3 +21,5 @@
         "phpmailer/phpmailer": "^6.5"
     }
 }
+
+
