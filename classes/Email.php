@@ -25,8 +25,8 @@ class Email {
          $mail->Host = 'smtp.mailtrap.io';
          $mail->SMTPAuth = true;
          $mail->Port = 2525;
-         $mail->Username = '3790b69a6ae947';
-         $mail->Password = 'd8ec8d9b814981';
+         $mail->Username = '2a2848e9eb94ad';
+         $mail->Password = 'bdc48d9bacfc64';
      
          $mail->setFrom('admin@cangurocr.com');
          $mail->addAddress('admin@cangurocr.com', 'cangurocr.com');
@@ -56,8 +56,8 @@ class Email {
         $mail->Host = 'smtp.mailtrap.io';
         $mail->SMTPAuth = true;
         $mail->Port = 2525;
-        $mail->Username = '3790b69a6ae947';
-        $mail->Password = 'd8ec8d9b814981';
+        $mail->Username = '2a2848e9eb94ad';
+        $mail->Password = 'bdc48d9bacfc64';
      
         $mail->setFrom('admin@cangurocr.com');
         $mail->addAddress('admin@cangurocr.com', 'cangurocr.com');
@@ -76,7 +76,5 @@ class Email {
 
             //Enviar el mail
         $mail->send();
-    }
-
-    
+    }    
 }
