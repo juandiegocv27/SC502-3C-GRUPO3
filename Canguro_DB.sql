@@ -55,3 +55,6 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Agregar usuario para testing
+-- INSERT INTO usuarios (email, password) VALUES ("test@gmail.com","test");
+-- select * from usuario;
