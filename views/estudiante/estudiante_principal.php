@@ -1,9 +1,9 @@
-    <!-- Navbar Start -->
+- <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
             <a href="#" class="navbar-brand ml-lg-3">
-                <h1 class="m-0 text-uppercase text-primary"> <img src="img/logo.svg" alt="logo" width="50px"
-                        height="50px"> Canguro Matematico</h1>
+                <h1 class="m-0 text-uppercase text-primary"> 
+                       Canguro Matematico</h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -11,8 +11,8 @@
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
                     <a href="/estudiante_principal" class="nav-item nav-link active">Principal</a>
-                    <a href="estudiante_informacionTutorias.html" class="nav-item nav-link ">Mis Tutorias</a>
-                    <a href="estudiante_matricularTutoria.html" class="nav-item nav-link ">Matricular Tutorias</a>
+                    <a href="../views/estudiante/estudiante_informacionTutorias.html" class="nav-item nav-link ">Mis Tutorias</a>
+                    <a href="estudiante_matricularTutoria" class="nav-item nav-link ">Matricular Tutorias</a>
                     <a href="estudiante_calendario.html" class="nav-item nav-link">Calendario</a>
                     <a href="estudiante_perfil.html" class="nav-item nav-link">Perfil Estudiante</a>
                     <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
@@ -34,6 +34,8 @@
     <!-- Header End -->
 
     <!-- Courses Start -->
+
+ 
     <div class="container-fluid px-0 py-5">
         <div class="row mx-0 justify-content-center pt-5">
             <div class="col-lg-6">
@@ -45,7 +47,7 @@
         </div>
         <div class="owl-carousel courses-carousel">
             <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-1.jpg" alt="">
+                <img class="img-fluid" src="/build/img/courses-1.jpg" alt="">
                 <div class="courses-text">
                     <h4 class="text-center text-white px-3">Logica Matematica</h4>
                     <div class="border-top w-100 mt-3">
@@ -59,7 +61,7 @@
                 </div>
             </div>
             <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-2.jpg" alt="">
+                <img class="img-fluid" src="build/img/courses-2.jpg" alt="">
                 <div class="courses-text">
                     <h4 class="text-center text-white px-3">Introduccion al Calculo</h4>
                     <div class="border-top w-100 mt-3">
@@ -73,7 +75,7 @@
                 </div>
             </div>
             <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-3.jpg" alt="">
+                <img class="img-fluid" src="build/img/courses-3.jpg" alt="">
                 <div class="courses-text">
                     <h4 class="text-center text-white px-3"> Matematica Secundaria</h4>
                     <div class="border-top w-100 mt-3">
@@ -88,7 +90,7 @@
                 </div>
             </div>
             <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-4.jpg" alt="">
+                <img class="img-fluid" src="/build/img/courses-4.jpg" alt="">
                 <div class="courses-text">
                     <h4 class="text-center text-white px-3">Matematica Primaria</h4>
                     <div class="border-top w-100 mt-3">
@@ -103,7 +105,7 @@
             </div>
             
             <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-6.jpg" alt="">
+                <img class="img-fluid" src="/build/img/courses-6.jpg" alt="">
                 <div class="courses-text">
                     <h4 class="text-center text-white px-3">Matematica Basica </h4>
                     <div class="border-top w-100 mt-3">
@@ -127,7 +129,7 @@
             <div class="row">
                 <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="img/about.jpg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="/build/img/about.jpg" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -136,31 +138,7 @@
                         <h1 class="display-4">Primera Opción Para La Educación En Línea</h1>
                     </div>
                     <p>Canguro Matemático es un programa integral para el desarrollo del razonamiento y el acompañamiento de estudiantes. Cimentado en principios de responsabilidad y excelencia académica, ofrece la posibilidad de que los estudiantes participen en una prueba internacional de razonamiento, así como acceso a programas para apoyo en el desarrollo del razonamiento. Las actividades que se desarrollan son tanto a nivel individual como a nivel institucional. </p>
-                    <div class="row pt-3 mx-0">
-                        <div class="col-3 px-0">
-                            <div class="bg-success text-center p-4">
-                                <h1 class="text-white" data-toggle="counter-up">123</h1>
-                                <h6 class="text-uppercase text-white">Recursos<span class="d-block">Disponibles</span></h6>
-                            </div>
-                        </div>
-                        <div class="col-3 px-0">
-                            <div class="bg-primary text-center p-4">
-                                <h1 class="text-white" data-toggle="counter-up">1234</h1>
-                                <h6 class="text-uppercase text-white">Tutorias<span class="d-block">Online</span></h6>
-                            </div>
-                        </div>
-                        <div class="col-3 px-0">
-                            <div class="bg-secondary text-center p-4">
-                                <h1 class="text-white" data-toggle="counter-up">123</h1>
-                                <h6 class="text-uppercase text-white">Profesores<span class="d-block">Expertos</span></h6>
-                            </div>
-                        </div>
-                        <div class="col-3 px-0">
-                            <div class="bg-warning text-center p-4">
-                                <h1 class="text-white" data-toggle="counter-up">1234</h1>
-                                <h6 class="text-uppercase text-white">Estudiantes<span class="d-block">Felices</span></h6>
-                            </div>
-                        </div>
+                    
                     </div>
                 </div>
             </div>
