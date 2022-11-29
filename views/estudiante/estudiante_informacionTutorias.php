@@ -45,7 +45,7 @@
                     <a href="/estudiante_perfil" class="nav-item nav-link">Perfil Estudiante</a>
                     <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
                 </div>
-                <a href="#" class="btn btn-primary py-2 px-4 d-none d-lg-block">Cerrar Sesion</a>
+                <a href="/logout" class="btn btn-primary py-2 px-4 d-none d-lg-block">Cerrar Sesion</a>
             </div>
         </nav>
     </div>
