@@ -211,4 +211,34 @@ class LoginController {
     public static function principal (Router $router){
         $router->render('/index-general');
     }
+
+
+
+    public static function Reglamento (Router $router){
+        $router->render('general/index_reglamento');
+    }
+
+    public static function Patrocinadores (Router $router){
+        $router->render('general/index_patrocinadores');
+    }
+    public static function inscripcion (Router $router){
+        $router->render('general/index_inscripcion');
+    }
+
+    public static function nuestraAsociacion (Router $router){
+        $router->render('general/index_nuestraAsociacion');
+    }
+
+    public static function Historia (Router $router){
+        $router->render('general/index_historia');
+    }
+
+    public static function contacto (Router $router){
+        $router->render('general/index_contacto');
+    }
+
+    
+    public static function iniciosesion (Router $router){
+        $router->render('general/index_inicioSesion');
+    }
 }

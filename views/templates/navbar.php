@@ -13,19 +13,19 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Competencia</a>
                         <div class="dropdown-menu m-0">
-                            <a href="index_reglamento.html" class="dropdown-item">Reglamento</a>
-                            <a href="index_inscripcion.html" class="dropdown-item">Inscripción</a>
+                            <a href="/index_reglamento" class="dropdown-item">Reglamento</a>
+                            <a href="/index_inscripcion" class="dropdown-item">Inscripción</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Quienes Somos </a>
                         <div class="dropdown-menu m-0">
-                            <a href="index_nuestraAsociacion.html" class="dropdown-item">Nuestra Asociacion</a>
-                            <a href="index_historia.html" class="dropdown-item">Historia</a>
-                            <a href="index_patrocinadores.html" class="dropdown-item">Patrocinadores</a>
+                            <a href="/index_nuestraAsociacion" class="dropdown-item">Nuestra Asociacion</a>
+                            <a href="/index_historia" class="dropdown-item">Historia</a>
+                            <a href="/index_patrocinadores" class="dropdown-item">Patrocinadores</a>
                         </div>
                     </div>
-                    <a href="index_contacto.html" class="nav-item nav-link">Contáctanos</a>
+                    <a href="/index_contacto" class="nav-item nav-link">Contáctanos</a>
                 </div>
                 <a href="login" class="btn btn-primary py-2 px-4 d-none d-lg-block">Iniciar sesión</a>
             </div>

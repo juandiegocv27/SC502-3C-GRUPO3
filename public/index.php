@@ -17,6 +17,15 @@ $router->GET('/login',[LoginController::class,'login']);
 $router->POST('/login',[LoginController::class,'login']);
 $router->GET('/logout',[LoginController::class,'logout']);
 
+//Pagina de Inicio
+$router->GET('/index_contacto',[LoginController::class,'contacto']);
+$router->GET('/index_historia',[LoginController::class,'Historia']);
+$router->GET('/index_inscripcion',[LoginController::class,'inscripcion']);
+$router->GET('/index_nuestraAsociacion',[LoginController::class,'nuestraAsociacion']);
+$router->GET('/index_patrocinadores',[LoginController::class,'Patrocinadores']);
+$router->GET('/index_reglamento',[LoginController::class,'Reglamento']);
+$router->GET('/index_inicioSesion',[LoginController::class,'inicioSesion']);
+
 // Recuperar Password
 $router->get('/olvide', [LoginController::class, 'olvide']);
 $router->post('/olvide', [LoginController::class, 'olvide']);
@@ -33,6 +42,11 @@ $router->GET('/mensaje',[LoginController::class,'mensaje']);
 
 //Areas por tipo de usuario
 $router->GET('/estudiante_principal',[EstudianteController::class,'index']);
+$router->GET('/estudiante_principal',[EstudianteController::class,'index']);
+$router->GET('/estudiante_informacionTutorias',[EstudianteController::class,'informacion']);
+$router->GET('/estudiante_matricularTutoria',[EstudianteController::class,'matricular']);
+$router->GET('/estudiante_calendario',[EstudianteController::class,'calendario']);
+$router->GET('/estudiante_perfil',[EstudianteController::class,'perfil']);
 $router->GET('/profesor_principal',[ProfesorController::class,'index']);
 $router->GET('/admin', [AdminController::class, 'index']);
 

@@ -11,10 +11,10 @@
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
                     <a href="/estudiante_principal" class="nav-item nav-link active">Principal</a>
-                    <a href="../views/estudiante/estudiante_informacionTutorias.html" class="nav-item nav-link ">Mis Tutorias</a>
-                    <a href="estudiante_matricularTutoria" class="nav-item nav-link ">Matricular Tutorias</a>
-                    <a href="estudiante_calendario.html" class="nav-item nav-link">Calendario</a>
-                    <a href="estudiante_perfil.html" class="nav-item nav-link">Perfil Estudiante</a>
+                    <a href="/estudiante_informacionTutorias" class="nav-item nav-link ">Mis Tutorias</a>
+                    <a href="/estudiante_matricularTutoria" class="nav-item nav-link ">Matricular Tutorias</a>
+                    <a href="/estudiante_calendario" class="nav-item nav-link">Calendario</a>
+                    <a href="/estudiante_perfil" class="nav-item nav-link">Perfil Estudiante</a>
                     <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
                 </div>
                 <a href="/logout" class="btn btn-primary py-2 px-4 d-none d-lg-block">Cerrar Sesion</a>
@@ -29,6 +29,8 @@
         <div class="container text-center my-5 py-5">
             <h1 class="text-white mt-4 mb-4 texto_blanco">Competencia Internacional</h1>
             <h1 class="text-white display-1 mb-5 texto_blanco"> Canguro Matemático Costa Rica </h1>
+
+
         </div>
     </div>
     <!-- Header End -->
@@ -121,6 +123,21 @@
         </div>
     
     </div>
+
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row">
+    <table>
+<tr>
+<th>id</th>
+<th>email</th>
+<th>password</th>
+</tr>
+
+                </div>
+            </div>
+        </div>
+   
     <!-- Courses End -->
 
  <!-- About Start -->
@@ -146,4 +163,22 @@
     </div>
     <!-- About End -->
 
-    
+    <?php
+$conn = mysqli_connect("localhost", "root", "rootroot", "dbcasacanguro");
+// Check connection
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+}
+$sql = "SELECT id, username, password FROM usuarios";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+// output data of each row
+while($row = $result->fetch_assoc()) {
+echo "<tr><td>" . $row["id"]. "</td><td>" . $row["email"] . "</td><td>"
+. $row["password"]. "</td></tr>";
+}
+echo "</table>";
+} else { echo "0 results"; }
+$conn->close();
+?>
+</table>
