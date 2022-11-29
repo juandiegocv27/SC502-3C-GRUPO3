@@ -1,7 +1,7 @@
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-            <a href="#" class="navbar-brand ml-lg-3">
+            <a href="/admin" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 text-uppercase text-primary"> <img src="/build/img/logo.svg" alt="logo" width="50px"
                         height="50px"> Canguro Matematico</h1>
             </a>
@@ -10,11 +10,11 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
-                    <a href="/admin_principal" class="nav-item nav-link active">Principal</a>
-                    <a href="admin_reportes.html" class="nav-item nav-link ">Reportes</a>
-                    <a href="admin_graficos.html" class="nav-item nav-link ">Graficos</a>
-                    <a href="admin_calendario.html" class="nav-item nav-link">Calendario</a>
-                    <a href="admin_registroProfesores.html" class="nav-item nav-link">Registros</a>
+                    <a href="/admin" class="nav-item nav-link ">Principal</a>
+                    <a href="/admin_reportes" class="nav-item nav-link">Reportes</a>
+                    <a href="/admin_graficos" class="nav-item nav-link ">Graficos</a>
+                    <a href="/admin_calendario" class="nav-item nav-link">Calendario</a>
+                    <a href="/admin_registroProfesores" class="nav-item nav-link">Registros</a>
                 </div>
                 <a href="/logout" class="btn btn-primary py-2 px-4 d-none d-lg-block">Cerrar Sesion</a>
             </div>
@@ -44,7 +44,7 @@
         </div>
         <div class="owl-carousel courses-carousel">
             <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-1.jpg" alt="">
+                <img class="img-fluid" src="/build/img/courses-1.jpg" alt="">
                 <div class="courses-text">
                     <h4 class="text-center text-white px-3">Logica Matematica</h4>
                     <div class="border-top w-100 mt-3">
@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-2.jpg" alt="">
+                <img class="img-fluid" src="/build/img/courses-2.jpg" alt="">
                 <div class="courses-text">
                     <h4 class="text-center text-white px-3">Introduccion al Calculo</h4>
                     <div class="border-top w-100 mt-3">
@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-3.jpg" alt="">
+                <img class="img-fluid" src="/build/img/courses-3.jpg" alt="">
                 <div class="courses-text">
                     <h4 class="text-center text-white px-3"> Matematica Secundaria</h4>
                     <div class="border-top w-100 mt-3">
@@ -87,7 +87,7 @@
                 </div>
             </div>
             <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-4.jpg" alt="">
+                <img class="img-fluid" src="/build/img/courses-4.jpg" alt="">
                 <div class="courses-text">
                     <h4 class="text-center text-white px-3">Matematica Primaria</h4>
                     <div class="border-top w-100 mt-3">
@@ -102,7 +102,7 @@
             </div>
             
             <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-6.jpg" alt="">
+                <img class="img-fluid" src="/build/img/courses-6.jpg" alt="">
                 <div class="courses-text">
                     <h4 class="text-center text-white px-3">Matematica Basica </h4>
                     <div class="border-top w-100 mt-3">
@@ -126,7 +126,7 @@
             <div class="row">
                 <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="img/about.jpg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="/build/img/about.jpg" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-7">
