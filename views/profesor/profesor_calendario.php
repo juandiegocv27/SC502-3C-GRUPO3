@@ -17,18 +17,32 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
     <!-- Libraries Stylesheet -->
-    <link rel="stylesheet" href="../../public/build/lib/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/build/lib/owlcarousel/assets/owl.carousel.min.css">
     <!-- Customized Bootstrap Stylesheet -->
-    <link rel="stylesheet" href="../../public/build/css/style.css">
+    <link rel="stylesheet" href="/build/css/style.css">
+    <!-- <link rel="stylesheet" href="css/app.css"> -->
+    <link rel="stylesheet" href="/build/lib/fullCalendar/main.css">
+    <script src="/build/lib/fullCalendar/main.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth'
+            });
+            calendar.render();
+        });
+
+    </script>
 </head>
 
 <body>
     <!-- Navbar Inicio -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-            <a href="index.html" class="navbar-brand ml-lg-3">
+            <a href="/profesor_principal" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 text-uppercase text-primary">
-                    <img src="../../public/build/img/logo.svg" alt="logo" width="50px" height="50px" />
+                    <img src="/build/img/logo.svg" alt="logo" width="50px" height="50px" />
                     Canguro Matematico
                 </h1>
             </a>
@@ -37,42 +51,30 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
-                    <a href="profesor_principal.html" class="nav-item nav-link ">Tutorias</a>
-                    <a href="profesor_reportes.html" class="nav-item nav-link active">Reportes</a>
-                    <a href="profesor_calendario.html" class="nav-item nav-link">Calendario</a>
-                    <a href="profesor_perfil.html" class="nav-item nav-link">Perfil Profesor</a>
+                    <a href="/profesor_principal" class="nav-item nav-link ">Tutorias</a>
+                    <a href="/profesor_reportes" class="nav-item nav-link active">Reportes</a>
+                    <a href="/profesor_calendario" class="nav-item nav-link">Calendario</a>
+                    <a href="/profesor_perfil" class="nav-item nav-link">Perfil Profesor</a>
                 </div>
-                <a href="index.html" class="btn btn-primary py-2 px-4 d-none d-lg-block">Cerrar sesión</a>
+                <a href="/logout" class="btn btn-primary py-2 px-4 d-none d-lg-block">Cerrar sesión</a>
             </div>
         </nav>
     </div>
     <!-- Navbar Final -->
 
-    <!-- Header Start -->
-    <div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px">
-        <div class="container text-center my-5 py-5">
-            <h1 class="text-white display-1 mb-5 texto_blanco">Reportes</h1>
-        </div>
+    <!-- CALENDARIO INICIO -->
+    <div class="container mt-5">
+        <div id='calendar'></div>
     </div>
-
-    <!-- REPORTES INICIO -->
-    <div class="container">
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action text-center">Descargar reporte 1</a>
-            <a href="#" class="list-group-item list-group-item-action text-center">Descargar reporte 2</a>
-            <a href="#" class="list-group-item list-group-item-action text-center">Descargar reporte 3</a>
-        </div>
-    </div>
-
-    <!-- REPORTES FIN  -->
+    <!-- CALENDARIO FIN -->
 
     <!-- Footer Start -->
     <div class="container-fluid position-relative overlay-top bg-dark text-white-50 py-5" style="margin-top: 90px;">
         <div class="container mt-5 pt-5">
             <div class="d-flex justify-content-center">
                 <div class="col-md-8 mb-5">
-                    <a href="index.html" class="navbar-brand">
-                        <h1 class="mt-n2 text-uppercase text-white"><img src="../../public/build/img/logo.svg" width="32px" height="32px"
+                    <a href="/" class="navbar-brand">
+                        <h1 class="mt-n2 text-uppercase text-white"><img src="/build/img/logo.svg" width="32px" height="32px"
                                 alt=""> Canguro Matematico</h1>
                     </a>
                     <p class="m-0">Canguro Matemático es un programa integral para el desarrollo del razonamiento y el
@@ -137,13 +139,14 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="../../public/build/lib/easing/easing.min.js"></script>
-    <script src="../../public/build/lib/waypoints/waypoints.min.js"></script>
-    <script src="../../public/build/lib/counterup/counterup.min.js"></script>
-    <script src="../../public/build/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/build/lib/easing/easing.min.js"></script>
+    <script src="/build/lib/waypoints/waypoints.min.js"></script>
+    <script src="/build/lib/counterup/counterup.min.js"></script>
+    <script src="/build/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="../../public/build/js/main.js"></script>
+    <script src="/build/js/main.js"></script>
+
 </body>
 
 </html>

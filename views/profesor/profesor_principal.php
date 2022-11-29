@@ -1,9 +1,9 @@
     <!-- Navbar Inicio -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-            <a href="#" class="navbar-brand ml-lg-3">
+            <a href="/profesor_principal" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 text-uppercase text-primary">
-                    <img src="img/logo.svg" alt="logo" width="50px" height="50px" />
+                    <img src="/build/img/logo.svg" alt="logo" width="50px" height="50px" />
                     Canguro Matematico
                 </h1>
             </a>
@@ -12,10 +12,10 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
-                    <a href="/profesor_principal" class="nav-item nav-link active">Tutorias</a>
-                    <a href="profesor_reportes.html" class="nav-item nav-link">Reportes</a>
-                    <a href="profesor_calendario.html" class="nav-item nav-link">Calendario</a>
-                    <a href="profesor_perfil.html" class="nav-item nav-link">Perfil Profesor</a>
+                    <a href="/profesor_principal" class="nav-item nav-link ">Tutorias</a>
+                    <a href="/profesor_reportes" class="nav-item nav-link active">Reportes</a>
+                    <a href="/profesor_calendario" class="nav-item nav-link">Calendario</a>
+                    <a href="/profesor_perfil" class="nav-item nav-link">Perfil Profesor</a>
                 </div>
                 <a href="/logout" class="btn btn-primary py-2 px-4 d-none d-lg-block">Cerrar sesión</a>
             </div>
@@ -40,7 +40,7 @@
     </div>
     <div class="card-group">
         <div class="card">
-            <img src="img/courses-4.jpg" class="card-img-top" alt="...">
+            <img src="/build/img/courses-4.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Nombre Tutoria</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis
@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="card">
-            <img src="img/courses-1.jpg" class="card-img-top" alt="...">
+            <img src="/build/img/courses-1.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Nombre Tutoria</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis
@@ -68,7 +68,7 @@
             </div>
         </div>
         <div class="card">
-            <img src="img/courses-5.jpg" class="card-img-top" alt="...">
+            <img src="/build/img/courses-5.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Nombre Tutoria</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis
@@ -98,7 +98,7 @@
         </div>
         <div class="container py-5 d-flex justify-content-center">
             <div class="card" style="width: 18rem">
-                <img src="img/courses-6.jpg" class="card-img-top" alt="..." />
+                <img src="/build/img/courses-6.jpg" class="card-img-top" alt="..." />
                 <div class="card-body text-center">
                     <div class="input-group input-group-sm mb-3">
                         <input type="text" class="form-control" aria-label="Sizing example input"

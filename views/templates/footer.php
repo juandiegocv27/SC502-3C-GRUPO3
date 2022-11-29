@@ -3,7 +3,7 @@
         <div class="container mt-5 pt-5">
             <div class="d-flex justify-content-center">
                 <div class="col-md-8 mb-5">
-                    <a href="index.html" class="navbar-brand">
+                    <a href="/" class="navbar-brand">
                         <h1 class="mt-n2 text-uppercase text-white"><img src="/build/img/logo.svg" width="32px" height="32px"
                                 alt=""> Canguro Matematico</h1>
                     </a>

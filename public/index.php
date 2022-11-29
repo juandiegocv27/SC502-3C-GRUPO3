@@ -41,14 +41,26 @@ $router->GET('/confirmar-cuenta',[LoginController::class,'confirmar']);
 $router->GET('/mensaje',[LoginController::class,'mensaje']);
 
 //Areas por tipo de usuario
-$router->GET('/estudiante_principal',[EstudianteController::class,'index']);
+//Estudiante
 $router->GET('/estudiante_principal',[EstudianteController::class,'index']);
 $router->GET('/estudiante_informacionTutorias',[EstudianteController::class,'informacion']);
 $router->GET('/estudiante_matricularTutoria',[EstudianteController::class,'matricular']);
 $router->GET('/estudiante_calendario',[EstudianteController::class,'calendario']);
 $router->GET('/estudiante_perfil',[EstudianteController::class,'perfil']);
+
+//Profesor
 $router->GET('/profesor_principal',[ProfesorController::class,'index']);
+$router->GET('/profesor_perfil',[ProfesorController::class,'perfil']);
+$router->GET('/profesor_reportes',[ProfesorController::class,'reportes']);
+$router->GET('/profesor_calendario',[ProfesorController::class,'calendario']);
+
+//Administrador
 $router->GET('/admin', [AdminController::class, 'index']);
+$router->GET('/admin_calendario', [AdminController::class, 'calendario']);
+$router->GET('/admin_graficos', [AdminController::class, 'graficos']);
+$router->GET('/admin_registroProfesores', [AdminController::class, 'registroProfesores']);
+$router->GET('/admin_reportes', [AdminController::class, 'reportes']);
+
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

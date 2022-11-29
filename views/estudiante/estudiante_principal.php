@@ -36,7 +36,6 @@
     <!-- Header End -->
 
     <!-- Courses Start -->
-
  
     <div class="container-fluid px-0 py-5">
         <div class="row mx-0 justify-content-center pt-5">
@@ -63,7 +62,7 @@
                 </div>
             </div>
             <div class="courses-item position-relative">
-                <img class="img-fluid" src="build/img/courses-2.jpg" alt="">
+                <img class="img-fluid" src="/build/img/courses-2.jpg" alt="">
                 <div class="courses-text">
                     <h4 class="text-center text-white px-3">Introduccion al Calculo</h4>
                     <div class="border-top w-100 mt-3">
@@ -77,7 +76,7 @@
                 </div>
             </div>
             <div class="courses-item position-relative">
-                <img class="img-fluid" src="build/img/courses-3.jpg" alt="">
+                <img class="img-fluid" src="/build/img/courses-3.jpg" alt="">
                 <div class="courses-text">
                     <h4 class="text-center text-white px-3"> Matematica Secundaria</h4>
                     <div class="border-top w-100 mt-3">
@@ -124,6 +123,19 @@
     
     </div>
 
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>email</th>
+                        <th>password</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
    
     <!-- Courses End -->
 
@@ -148,6 +160,5 @@
             </div>
         </div>
     </div>
-    <!-- About End -->
 
-   
+    <!-- About End -->
