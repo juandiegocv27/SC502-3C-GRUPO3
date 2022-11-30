@@ -15,49 +15,54 @@
 <!-- --------------------------------------------------------------------------- -->
 
 <main class="contenedor seccion contenido-centrado"> 
-<h1>Registro de Usuarios</h1>
-<?php
-    include_once __DIR__ . "/../templates/alertas.php";
-?>
-<form class="formulario" method="POST" action="/registro" novalidate>
-    <fieldset>
-        <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" placeholder="Tu Nombre" id="nombre">
-        
-        <label for="apellido1">Primer Apellido</label>
-        <input type="text" name="apellido1" placeholder="Tu Primer Apellido" id="apellido1">
-        
-        <label for="apellido2">Segundo Apellido</label>
-        <input type="text" name="apellido2" placeholder="Tu Segundo Apellido" id="apellido2">
-        
-        <label for="cedula">Cédula</label>
-        <input type="text" name="cedula" placeholder="Tu Número de Cédula" id="cedula">
-        
-        <label for="email">E-mail</label>
-        <input type="email" name="email" placeholder="Tu Email" id="email">
+    <h1>Registro de Usuarios</h1>
+    <?php
+        include_once __DIR__ . "/../templates/alertas.php";
+    ?>
 
-        <label for="telefono">Teléfono</label>
-        <input type="tel" id="phtelefonoone" placeholder="99999999" name="telefono" pattern="[0-9]{8}">
+    <form class="formulario row g-3 my-5" method="POST" action="/registro" novalidate>
+        <div class="col-md-4" >
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" placeholder="Tu Nombre" id="nombre">
+            
+            <label for="cedula">Cédula</label>
+            <input type="text" name="cedula" placeholder="Tu Número de Cédula" id="cedula">
 
-        <label for="direccion">Dirección</label>
-        <input type="text" name="direccion" placeholder="Tu Dirección" id="direccion">
-        
-        <label for="fechaNacimiento">Fecha de nacimiento</label>
-        <input type="datetime-local" id="fechaNacimiento" name="fechaNacimiento">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" placeholder="Tu Email" id="email">
+        </div>
 
-        <label for="password">Contraseña</label>
-        <input type="password" name="password" placeholder="Tu Contraseña" id="password">
+        <div class="col-md-4" >
+            <label for="apellido1">Primer Apellido</label>
+            <input type="text" name="apellido1" placeholder="Tu Primer Apellido" id="apellido1">
 
-        <label for="Cpassword">Confirmar Contraseña</label>
-        <input type="password" name="Cpassword" placeholder="Confirme tu contraseña" id="Cpassword">
-        
-        <!-- <input type="checkbox" id="politicas" name="politicas" value="politicas">
-        <label for="politicas"> He leido y acepto los terminos de servicio y políticas de privacidad.</label><br>
-        
-        <input type="checkbox" id="novedades" name="novedades" value="novedades">
-        <label for="novedades"> Quiero recibir novedades sobre los servicios de Canguro Matemático por correo.</label><br> -->
-    </fieldset>
+            <label for="fechaNacimiento">Fecha de nacimiento</label>
+            <input type="datetime-local" id="fechaNacimiento" name="fechaNacimiento">
 
-    <input type="submit" value="Registrar cuenta" class="boton boton-verde">
-</form>
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" placeholder="Tu Contraseña" id="password">
+        </div>
+
+        <div class="col-md-4" >
+            <label for="apellido2">Segundo Apellido</label>
+            <input type="text" name="apellido2" placeholder="Tu Segundo Apellido" id="apellido2">
+
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="phtelefonoone" placeholder="99999999" name="telefono" pattern="[0-9]{8}">
+
+            <label for="Cpassword">Confirmar Contraseña</label>
+            <input type="password" name="Cpassword" placeholder="Confirme tu contraseña" id="Cpassword">
+        </div>
+
+        <div class="col-md-12" >
+            <label for="direccion">Dirección</label>
+            <input type="text" name="direccion" placeholder="Tu Dirección" id="direccion">
+        </div>
+            <!-- <input type="checkbox" id="politicas" name="politicas" value="politicas">
+            <label for="politicas"> He leido y acepto los terminos de servicio y políticas de privacidad.</label><br>
+            
+            <input type="checkbox" id="novedades" name="novedades" value="novedades">
+            <label for="novedades"> Quiero recibir novedades sobre los servicios de Canguro Matemático por correo.</label><br> -->
+        <input type="submit" value="Registrar cuenta" class="boton boton-verde ">
+    </form>`
 </main>

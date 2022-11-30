@@ -23,16 +23,15 @@
     include_once __DIR__ . "/../templates/alertas.php";
     ?>
 
-    <form class="formulario" method="POST" action="/login">
-        <fieldset>
-
+    <form class="formulario my-4" method="POST" action="/login">
+        <div class="col-md-6" >
             <label for="email">E-mail</label>
             <input type="email" name="email" placeholder="Tu Email" id="email">
-
+        </div>
+        <div class="col-md-6" >
             <label for="password">Contraseña</label>
             <input type="password" name="password" placeholder="Tu Contraseña" id="password">
-            
-        </fieldset>
+        </div>
         <input type="submit" value="Iniciar Sesión" class="boton boton-verde">
     </form>
     <div class="acciones" style="margin-top: 3rem;">
