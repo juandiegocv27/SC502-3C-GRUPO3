@@ -34,82 +34,109 @@
     <div class="row mx-0 justify-content-center pt-5">
         <div class="col-lg-6">
             <div class="section-title text-center position-relative mb-4">
-                <h1 class="display-4">Lista de Tutorias</h1>
+                <h1 class="display-4">Tus Tutorias</h1>
             </div>
         </div>
     </div>
-    <div class="card-group">
-        <div class="card">
-            <img src="/build/img/courses-4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Nombre Tutoria</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis
-                    tempore autem nisi nihil omnis aut praesentium eos id dicta eum. Explicabo sunt suscipit distinctio
-                    nulla tempora aliquam similique totam!</p>
-                <div class="d-grid gap-3mx-auto">
-                    <button class="btn btn-primary " type="button">Lista de Estudiantes</button>
-                    <button class="btn btn-primary " type="button">Subir material</button>
-                    <button class="btn btn-primary " type="button">Editar Tutoria</button>
-                </div>
+    <section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col my-4">
+                <button class="btn btn-primary " type="button" style="width: 100%;" data-toggle="modal" data-target="#exampleModal">Crear Nueva Tutoría</button>
             </div>
-        </div>
-        <div class="card">
-            <img src="/build/img/courses-1.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Nombre Tutoria</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis
-                    tempore autem nisi nihil omnis aut praesentium eos id dicta eum. Explicabo sunt suscipit distinctio
-                    nulla tempora aliquam similique totam!</p>
-                <div class="d-grid gap-3mx-auto">
-                    <button class="btn btn-primary " type="button">Lista de Estudiantes</button>
-                    <button class="btn btn-primary " type="button">Subir material</button>
-                    <button class="btn btn-primary " type="button">Editar Tutoria</button>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/build/img/courses-5.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Nombre Tutoria</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis
-                    tempore autem nisi nihil omnis aut praesentium eos id dicta eum. Explicabo sunt suscipit distinctio
-                    nulla tempora aliquam similique totam!</p>
-                <div class="d-grid gap-3mx-auto">
-                    <button class="btn btn-primary " type="button">Lista de Estudiantes</button>
-                    <button class="btn btn-primary " type="button">Subir material</button>
-                    <button class="btn btn-primary " type="button">Editar Tutoria</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="d-flex justify-content-center mt-4">
-        <button class="btn btn-primary " type="submit">Ver Mas Tutorias</button>
-    </div>
-    <!-- Courses End -->
+            <div class="col-12">
+                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
 
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <?php
+                                use Model\Tutoria;
+                                    $tuto = new Tutoria($_GET);
+                                    $resultado = $tuto->getTutoriasbyProfesor();
+                                    $contador = 0;
+                                    while (($obj = mysqli_fetch_object($resultado))) {
+                                        //echo '<script>console.log("'. $obj->id_tutoria .'"); </script>';
+                                    
+                                ?> 
 
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=42b2d9ae6feb9c4ff98b9133addfb698">
+                                        <div class="card-body">
+                                            <h4 class="card-title"><?php echo $obj->nombre .' ('.$obj->profesorNombre.')' ?> </h4>
+                                            <p class="card-text">Descripción: <?php echo $obj->descripcion ?></p>
+                                            <p class="card-text">
+                                                Tipo: <?php echo $obj->tipo ?> <br> Nivel: <?php echo $obj->nivel ?> <br>
+                                                <a href="<?php echo $obj->enlaceZoom ?>">Enlace de Zoom</a> <br> Fecha: <?php echo $obj->fechaTutoria ?>
+                                            </p>
+                                            <button class="btn btn-primary " type="button">Estudiantes</button>
+                                            <button class="btn btn-primary " type="button">Editar</button>
 
+                                        </div>
+                                    </div>
+                                </div>
 
-
-    <!-- INICIO NUEVA TUTORIA -->
-    <div class="container-fluid py-5 mt-5">
-        <div class="section-title text-center position-relative mb-5">
-            <h1 class="display-4">Crear Nueva Tutoria</h1>
-        </div>
-        <div class="container py-5 d-flex justify-content-center">
-            <div class="card" style="width: 18rem">
-                <img src="/build/img/courses-6.jpg" class="card-img-top" alt="..." />
-                <div class="card-body text-center">
-                    <div class="input-group input-group-sm mb-3">
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-sm" placeholder="Nombre de la tutoria" />
+                                <?php }?>
+                            </div>
+                        </div>
+                        
+                        
                     </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-sm" placeholder="Tipo de tutoria" />
-                    </div>
-                    <a href="#" class="btn btn-primary align-self-center">Crear Tutoria</a>
                 </div>
             </div>
         </div>
     </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form class="formulario row g-3 my-5" method="POST" action="/profesor_principal" novalidate>
+        <div class="col-2"></div>
+        <div class="col" >
+            <div class="row">
+                <label for="id_tutoria">ID Tutoria</label>
+                <input type="number" name="id_tutoria" placeholder="Un ID" id="id_tutoria">
+            </div><div class="row">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" placeholder="Tu Nombre" id="nombre">
+            </div>  <div class="row">  
+                <label for="descripcion">Descripción</label>
+                <input type="text" name="descripcion" placeholder="Describe la tutoría" id="descripcion">
+            </div>  <div class="row">
+                <label for="material">Material</label>
+                <input type="text" name="material" placeholder="¿Qué libro se utilizará?" id="material">
+            </div>  <div class="row">
+                <label for="tipo">Tipo</label>
+                <input type="text" name="tipo" placeholder="Tipo de tutoría" id="tipo">
+            </div>  <div class="row">
+                <label for="nivel">Nivel</label>
+                <input type="text" id="nivel" placeholder="Bajo-Medio-Alto" name="nivel">
+            </div>  <div class="row">
+            <label for="fechaTutoria">Fecha de Tutoría</label>
+                <input type="datetime-local" id="fechaTutoria" name="fechaTutoria">
+            </div>  <div class="row">
+                <label for="enlaceZoom">Enlace de Zoom</label>
+                <input type="text" name="enlaceZoom" placeholder="Enlace para la tutoría" id="enlaceZoom">
+            </div>
+            
+        </div>
+        <div class="col-1"></div>
+        <div class="row">
+            <div class="col offset-3">
+                <input type="submit" value = "Registrar Tutoria" class="boton boton-verde">
+                <button type="button" class="boton boton-rojo" data-dismiss="modal">Cancelar</button></div>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>

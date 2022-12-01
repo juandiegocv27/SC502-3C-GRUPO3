@@ -49,6 +49,7 @@ $router->GET('/estudiante_calendario',[EstudianteController::class,'calendario']
 $router->GET('/estudiante_perfil',[EstudianteController::class,'perfil']);
 
 //Profesor
+$router->POST('/profesor_principal',[ProfesorController::class,'index']);
 $router->GET('/profesor_principal',[ProfesorController::class,'index']);
 $router->GET('/profesor_perfil',[ProfesorController::class,'perfil']);
 $router->GET('/profesor_reportes',[ProfesorController::class,'reportes']);

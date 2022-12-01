@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Model\Tutoria;
 use MVC\Router;
 
 class ProfesorController {
@@ -9,6 +10,22 @@ class ProfesorController {
         session_start();
 
         isProf();
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $tutoria = new Tutoria;
+            $tutoria->sincronizar($_POST);
+            $tutoria->id_Profesor = $_SESSION['id'];
+            $tutoria->profesorNombre = $_SESSION['nombre'];
+            $alertas = $tutoria->validarNuevaCuenta();
+            
+            if(empty($alertas)) {
+                $resultado = $tutoria->existeTutoria();
+                if($resultado->num_rows) {
+                    $alertas = Tutoria::getAlertas();
+                } else {
+                    $tutoria->guardar();
+                }
+            }
+        }
  
         $router->render('profesor/profesor_principal', [
             'nombre' => $_SESSION['nombre'],
