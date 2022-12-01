@@ -44,6 +44,15 @@ function isAuth() : void {
     }
 }
 
+// Función que revisa que el usuario este autenticado
+function isProf() : void {
+    if(!isset($_SESSION['profesor'])) {
+        header('Location: /');
+    }
+}
+
+// Función que revisa que el usuario este autenticado
+
 function isAdmin() : void {
     if(!isset($_SESSION['admin'])) {
         header('Location: /');

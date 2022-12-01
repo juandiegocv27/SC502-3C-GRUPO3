@@ -8,7 +8,7 @@ class AdminController {
     public static function index (Router $router) {
         session_start();
 
-        isAuth();
+        isAdmin();
  
         $router->render('admin/admin_principal', [
             'nombre' => $_SESSION['nombre'],
@@ -19,7 +19,7 @@ class AdminController {
     public static function calendario (Router $router) {
         session_start();
 
-        isAuth();
+        isAdmin();
  
         $router->render('admin/admin_calendario', [
             'nombre' => $_SESSION['nombre'],
@@ -30,7 +30,7 @@ class AdminController {
     public static function graficos (Router $router) {
         session_start();
 
-        isAuth();
+        isAdmin();
  
         $router->render('admin/admin_graficos', [
             'nombre' => $_SESSION['nombre'],
@@ -41,7 +41,7 @@ class AdminController {
     public static function registroProfesores (Router $router) {
         session_start();
 
-        isAuth();
+        isAdmin();
  
         $router->render('admin/admin_registroProfesores', [
             'nombre' => $_SESSION['nombre'],
@@ -52,7 +52,7 @@ class AdminController {
     public static function reportes (Router $router) {
         session_start();
 
-        isAuth();
+        isAdmin();
  
         $router->render('admin/admin_reportes', [
             'nombre' => $_SESSION['nombre'],
