@@ -9,6 +9,8 @@ class EstudianteController {
         session_start();
 
         isAuth();
+        isStud();
+
  
         $router->render('estudiante/estudiante_principal', [
             'nombre' => $_SESSION['nombre'],
@@ -22,6 +24,7 @@ class EstudianteController {
         session_start();
 
         isAuth();
+        isStud();
 
         $router->render('estudiante/estudiante_calendario');
      }
@@ -30,6 +33,7 @@ class EstudianteController {
        session_start();
 
        isAuth();
+       isStud();
 
     $router->render('estudiante/estudiante_perfil', [
         'nombre' => $_SESSION['nombre'],
@@ -44,6 +48,7 @@ public static function Matricular (Router $router) {
     session_start();
 
     isAuth();
+    isStud();
 
  $router->render('estudiante/estudiante_matricularTutoria', [
      'nombre' => $_SESSION['nombre'],
@@ -57,6 +62,7 @@ public static function Informacion (Router $router) {
     session_start();
 
     isAuth();
+    isStud();
 
  $router->render('estudiante/estudiante_informacionTutorias', [
      'nombre' => $_SESSION['nombre'],

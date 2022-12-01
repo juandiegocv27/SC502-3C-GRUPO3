@@ -43,6 +43,11 @@ function isAuth() : void {
         header('Location: /');
     }
 }
+function isStud() : void {
+    if(!isset($_SESSION['estudiante'])) {
+        header('Location: /');
+    }
+}
 
 // Función que revisa que el usuario este autenticado
 function isProf() : void {
