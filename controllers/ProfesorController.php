@@ -8,7 +8,7 @@ class ProfesorController {
     public static function index (Router $router) {
         session_start();
 
-        isAuth();
+        isProf();
  
         $router->render('profesor/profesor_principal', [
             'nombre' => $_SESSION['nombre'],
@@ -19,7 +19,7 @@ class ProfesorController {
     public static function perfil (Router $router) {
         session_start();
 
-        isAuth();
+        isProf();
  
         $router->render('profesor/profesor_perfil', [
             'nombre' => $_SESSION['nombre'],
@@ -30,7 +30,7 @@ class ProfesorController {
     public static function reportes (Router $router) {
         session_start();
 
-        isAuth();
+        isProf();
  
         $router->render('profesor/profesor_reportes', [
             'nombre' => $_SESSION['nombre'],
@@ -41,7 +41,7 @@ class ProfesorController {
     public static function calendario (Router $router) {
         session_start();
 
-        isAuth();
+        isProf();
  
         $router->render('profesor/profesor_calendario', [
             'nombre' => $_SESSION['nombre'],

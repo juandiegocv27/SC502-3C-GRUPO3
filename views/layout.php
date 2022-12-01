@@ -18,7 +18,6 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/build/css/style.css" rel="stylesheet">
     <link href="/build/css/graficos.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -32,23 +31,7 @@
     <!-- Boton - Back to Top -->
     <a href="#" class="btn btn-lg btn-primary rounded-0 btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="/build/lib/easing/easing.min.js"></script>
-    <script src="/build/lib/waypoints/waypoints.min.js"></script>
-    <script src="/build/lib/counterup/counterup.min.js"></script>
-    <script src="/build/lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="/build/js/main.js"></script>
-
-      <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary rounded-0 btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
+<!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="/build/lib/easing/easing.min.js"></script>
