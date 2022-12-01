@@ -36,6 +36,7 @@ class LoginController {
                             $_SESSION['profesor'] = $usuario->rol ?? null;
                             header('Location: /profesor_principal');
                         } else{ //0:Estudiante
+                            $_SESSION['estudiante'] = $usuario->rol ?? null;
                             header('Location: /estudiante_principal');
                         }
 
