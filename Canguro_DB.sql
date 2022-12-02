@@ -54,6 +54,12 @@ CREATE TABLE usuarios (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=5;
 
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `tutoria` FOREIGN KEY (`id_Tutoria`) REFERENCES `tutorias` (`id_tutoria`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+ALTER TABLE `tutorias`
+  ADD CONSTRAINT `profesor` FOREIGN KEY (`id_Profesor`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- Agregar usuario para testing
 -- INSERT INTO usuarios (email, password) VALUES ("test@gmail.com","test");
