@@ -78,7 +78,7 @@ class LoginController {
                     $usuario->guardar();
 
                     //  Enviar el email
-                    $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+                    $email = new Email($usuario->email, $usuario->nombre, $usuario->token, $usuario->rol);
                     $email->enviarInstrucciones();
 
                     // Alerta de exito
@@ -101,13 +101,17 @@ class LoginController {
         $error = false;
 
         $token = s($_GET['token']);
-
+        
         // Buscar usuario por su token
         $usuario = Usuario::where('token', $token);
-
+        
         if(empty($usuario)) {
             Usuario::setAlerta('error', 'Token No Válido');
             $error = true;
+        }elseif ($usuario->confirmado == "0" &&  $usuario->rol == "2"){
+            // Modificar a usuario confirmado
+            $usuario->confirmado = "1";
+            // Usuario::setAlerta('exito', 'Cuenta Comprobada Correctamente');
         }
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -125,7 +129,11 @@ class LoginController {
 
                 $resultado = $usuario->guardar();
                 if($resultado) {
-                    header('Location: /');
+                    if ($usuario->rol == "2"){
+                        header('Location: /profesor_mensaje');
+                    }else{
+                        header('Location: /login');
+                    }
                 }
             }
         }
@@ -161,7 +169,7 @@ class LoginController {
                     $usuario->crearToken();
 
                     // Enviar el Email
-                    $email = new Email($usuario->nombre, $usuario->email, $usuario->token);
+                    $email = new Email($usuario->nombre, $usuario->email, $usuario->token, $usuario->rol);
                     $email->enviarConfirmacion();
 
                     // Crear el usuario
@@ -187,11 +195,13 @@ class LoginController {
     public static function confirmar(Router $router) {
         $alertas = [];
         $token = s($_GET['token']);
+       // Buscar usuario por su token
         $usuario = Usuario::where('token', $token);
 
         if(empty($usuario)) {
             // Mostrar mensaje de error
             Usuario::setAlerta('error', 'Token No Válido');
+            $error = true;
         } else {
             // Modificar a usuario confirmado
             $usuario->confirmado = "1";
@@ -209,11 +219,10 @@ class LoginController {
         ]);
     }
 
+    // ---------------------------------------------------------------------
     public static function principal (Router $router){
         $router->render('/index-general');
     }
-
-
 
     public static function Reglamento (Router $router){
         $router->render('general/index_reglamento');
