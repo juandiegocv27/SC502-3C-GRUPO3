@@ -1,5 +1,5 @@
-    <!-- Navbar Inicio -->
-    <div class="container-fluid p-0">
+  <!-- Navbar Inicio -->
+  <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
             <a href="/profesor_principal" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 text-uppercase text-primary">
@@ -42,7 +42,7 @@
     <div class="container">
         <div class="row">
             <div class="col my-4">
-                <button class="btn btn-primary " type="button" style="width: 100%;" data-toggle="modal" data-target="#exampleModal">Crear Nueva Tutoría</button>
+                <button class="btn btn-primary " type="button" style="width: 100%;" style = "border-radius: 300px;" data-toggle="modal" data-target="#exampleModal">Crear Nueva Tutoría</button>
             </div>
             <div class="col-12">
                 <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
@@ -52,27 +52,51 @@
                             <div class="row">
                                 <?php
                                 use Model\Tutoria;
+                                use Model\Usuario;
+                                $usuarios = new Usuario($_GET);
                                     $tuto = new Tutoria($_GET);
                                     $resultado = $tuto->getTutoriasbyProfesor();
                                     $contador = 0;
                                     while (($obj = mysqli_fetch_object($resultado))) {
-                                        //echo '<script>console.log("'. $obj->id_tutoria .'"); </script>';
+                                        
                                     
                                 ?> 
+                                <span id = "idM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->id_tutoria ?> </span>
+                                <span id = "nombreM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->nombre ?> </span>
+                                <span id = "descripcionM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->descripcion ?> </span>
+                                <span id = "materialM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->material ?> </span>
+                                <span id = "tipoM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->tipo ?> </span>
+                                <span id = "nivelM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->nivel ?> </span>
+                                <span id = "fechaTutoriaM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->fechaTutoria ?> </span>
+                                <span id = "enlaceZoomM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->enlaceZoom ?> </span>
+
 
                                 <div class="col-md-4 mb-3">
                                     <div class="card">
                                         <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=42b2d9ae6feb9c4ff98b9133addfb698">
                                         <div class="card-body">
-                                            <h4 class="card-title"><?php echo $obj->nombre .' ('.$obj->profesorNombre.')' ?> </h4>
+                                            <h4 class="card-title"><?php echo $obj->nombre .' ('.$obj->id_tutoria.')' ?></h4>
                                             <p class="card-text">Descripción: <?php echo $obj->descripcion ?></p>
                                             <p class="card-text">
-                                                Tipo: <?php echo $obj->tipo ?> <br> Nivel: <?php echo $obj->nivel ?> <br>
+                                                
+                                                Tipo: <span id = "tipoM<?php echo $obj->id_tutoria?>"> <?php echo $obj->tipo ?> </span> <br> Nivel: <?php echo $obj->nivel ?> <br>
                                                 <a href="<?php echo $obj->enlaceZoom ?>">Enlace de Zoom</a> <br> Fecha: <?php echo $obj->fechaTutoria ?>
                                             </p>
-                                            <button class="btn btn-primary " type="button">Estudiantes</button>
-                                            <button class="btn btn-primary " type="button">Editar</button>
-
+                                            <span id = "listaM<?php echo $obj->id_tutoria?>" hidden>
+                                            <?php
+                                            $resul = $usuarios->usuariosPorTutoria($obj->id_tutoria);
+                                            $contador = 0;
+                                            $lista = "";
+                                            while (($est = mysqli_fetch_object($resul))) {
+                                                $contador++;
+                                                $lista = $lista . strval($contador) . ". Estudiante: " . $est->nombre . " " . $est->apellido1 . "(" . $est->email . ") \n";
+                                            }
+                                            echo $lista;
+                                            ?> 
+                                            </span>
+                                            <button class="btn btn-primary estbtn" type="button" value = "view" id = <?php echo $obj->id_tutoria?> >Estudiantes</button>
+                                            <button class="btn btn-primary editbtn" type="button" value = "view" id = <?php echo $obj->id_tutoria?>>Editar</button>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -89,12 +113,54 @@
     </div>
 </section>
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.estbtn').on('click', function(){
+            
+            var id = $(this).attr("id");
+            console.log(id);
+            console.log($('#listaM' + id).text().trim())
+            if ($('#listaM' + id).text().trim() == ""){
+                $('#lista').val("No hay Estudiantes Matriculados");
+            } else {
+                $('#lista').val($('#listaM' + id).text().trim());
+            }
+            $('#estudiantes').modal('show');
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('.editbtn').on('click', function(){
+            
+            var id = $(this).attr("id");
+            console.log(id);
+            $('#id_tutoria').val($('#idM' + id).text().trim());
+            $('#nombre').val($('#nombreM' + id).text().trim());
+            $('#descripcion').val($('#descripcionM' + id).text().trim());
+            $('#material').val($('#materialM' + id).text().trim());
+            $('#tipo').val($('#tipoM' + id).text().trim());
+            $('#nivel').val($('#nivelM' + id).text().trim());
+            $('#fechaTutoria').val($('#fechaTutoriaM' + id).text().trim());
+            $('#enlaceZoom').val($('#enlaceZoomM' + id).text().trim());
+            
+            $('#exampleModal').modal('show');
+        })
+    })
+</script>
+
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Nueva Tutoria</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -114,7 +180,7 @@
                 <input type="text" name="descripcion" placeholder="Describe la tutoría" id="descripcion">
             </div>  <div class="row">
                 <label for="material">Material</label>
-                <input type="text" name="material" placeholder="¿Qué libro se utilizará?" id="material">
+                <input type="text" name="material" placeholder="¿Qué libro se utulizará?" id="material">
             </div>  <div class="row">
                 <label for="tipo">Tipo</label>
                 <input type="text" name="tipo" placeholder="Tipo de tutoría" id="tipo">
@@ -139,4 +205,31 @@
     </form>
     </div>
   </div>
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="estudiantes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Estudiantes Inscritos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="row">
+      <div class="col-1"></div>
+      <div class="col">
+        <textarea name="lista" id="lista" style = "width: 100%" disabled> </textarea>
+      </div>
+      <div class="col-1"></div>
+      </div>
+      <div class="row offset-4">
+            <button type="button" class="boton boton-verde" data-dismiss="modal">Aceptar</button>
+        </div>
+    </div>
+  </div>
+</div>
 </div>

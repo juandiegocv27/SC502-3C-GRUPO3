@@ -62,6 +62,8 @@ COMMIT;
 ALTER TABLE `tutorias`
   ADD CONSTRAINT `profesor` FOREIGN KEY (`id_Profesor`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
   
+ALTER TABLE `usuarios` ADD CONSTRAINT `tutoria` FOREIGN KEY (`id_tutoria`) REFERENCES `tutorias`(`id_tutoria`) ON DELETE CASCADE ON UPDATE CASCADE;  
 -- Agregar usuario para testing
 -- INSERT INTO usuarios (email, password) VALUES ("test@gmail.com","test");
 -- select * from usuario;
+--id_tutoria para estudiantes creado

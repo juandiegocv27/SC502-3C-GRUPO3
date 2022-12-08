@@ -20,9 +20,9 @@ class ProfesorController {
             if(empty($alertas)) {
                 $resultado = $tutoria->existeTutoria();
                 if($resultado->num_rows) {
-                    $alertas = Tutoria::getAlertas();
+                    $tutoria->actualizarTutoria();
                 } else {
-                    $tutoria->guardar();
+                    $tutoria->crear();
                 }
             }
         }

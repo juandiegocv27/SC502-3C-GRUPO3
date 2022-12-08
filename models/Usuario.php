@@ -128,11 +128,23 @@ class Usuario extends ActiveRecord {
 
     public function comprobarPasswordAndVerificado($password) {
         $resultado = password_verify($password, $this->password);
-        
         if(!$resultado || !$this->confirmado) {
             self::$alertas['error'][] = 'Password Incorrecto o tu cuenta no ha sido confirmada';
         } else {
             return true;
         }
+    }
+
+    // Revisa si el usuario ya existe
+    public function usuariosPorTutoria($id_tutoria) {
+        $query = " SELECT * FROM " . self::$tabla . " WHERE rol = 0 AND id_tutoria = " .$id_tutoria;
+
+        $resultado = self::$db->query($query);
+
+        if($resultado->num_rows) {
+            self::$alertas['error'][] = 'El Usuario ya esta registrado';
+        }
+
+        return $resultado;
     }
 }

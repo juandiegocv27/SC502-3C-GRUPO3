@@ -22,7 +22,7 @@ class Tutoria extends ActiveRecord {
         $this->id_tutoria = $args['id_tutoria'] ?? null;
         $this->nombre = $args['nombre'] ?? '';
         $this->descripcion = $args['descipcion'] ?? '';
-        $this->material = $args['meterial'] ?? '';
+        $this->material = $args['material'] ?? '';
         $this->tipo = $args['tipo'] ?? '0';
         $this->nivel = $args['nivel'] ?? '0';
         $this->profesorNombre = $args['profesorNombre'] ?? '';
@@ -60,7 +60,7 @@ class Tutoria extends ActiveRecord {
         return self::$alertas;
     }
 
-    // Revisa 
+    // Revisa si el usuario ya existe
     public function getTutoriasbyProfesor() {
         echo '<script>console.log("'. $_SESSION['id'] .'"); </script>';
         $query = " SELECT * FROM " . self::$tabla . " WHERE id_Profesor = " . $_SESSION['id'];
@@ -82,4 +82,24 @@ class Tutoria extends ActiveRecord {
         return $resultado;
     }
 
+    public function actualizarTutoria(){
+        // Sanitizar los datos
+        $atributos = $this->sanitizarAtributos();
+
+        // Iterar para ir agregando cada campo de la BD
+        $valores = [];
+        foreach($atributos as $key => $value) {
+            $valores[] = "{$key}='{$value}'";
+        }
+
+        // Consulta SQL
+        $query = "UPDATE " . static::$tabla ." SET ";
+        $query .=  join(', ', $valores );
+        $query .= " WHERE id_tutoria = '" . self::$db->escape_string($this->id_tutoria) . "' ";
+        $query .= " LIMIT 1 "; 
+
+        // Actualizar BD
+        $resultado = self::$db->query($query);
+        return $resultado;
+    }
 }
