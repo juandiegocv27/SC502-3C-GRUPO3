@@ -40,6 +40,7 @@ $router->POST('/registro',[LoginController::class,'crear']);
 $router->GET('/confirmar-cuenta',[LoginController::class,'confirmar']);
 $router->GET('/mensaje',[LoginController::class,'mensaje']);
 
+
 //Areas por tipo de usuario
 //Estudiante
 $router->GET('/estudiante_principal',[EstudianteController::class,'index']);
@@ -54,13 +55,16 @@ $router->GET('/profesor_principal',[ProfesorController::class,'index']);
 $router->GET('/profesor_perfil',[ProfesorController::class,'perfil']);
 $router->GET('/profesor_reportes',[ProfesorController::class,'reportes']);
 $router->GET('/profesor_calendario',[ProfesorController::class,'calendario']);
+$router->GET('/profesor_mensaje',[ProfesorController::class,'mensaje']);
 
 //Administrador
 $router->GET('/admin', [AdminController::class, 'index']);
 $router->GET('/admin_calendario', [AdminController::class, 'calendario']);
 $router->GET('/admin_graficos', [AdminController::class, 'graficos']);
 $router->GET('/admin_registroProfesores', [AdminController::class, 'registroProfesores']);
+$router->POST('/admin_registroProfesores', [AdminController::class, 'registroProfesores']);
 $router->GET('/admin_reportes', [AdminController::class, 'reportes']);
+$router->GET('/admin_mensaje',[AdminController::class,'mensaje']);
 
 
 

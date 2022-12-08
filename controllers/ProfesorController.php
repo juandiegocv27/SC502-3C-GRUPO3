@@ -65,4 +65,8 @@ class ProfesorController {
             'id' => $_SESSION['id']
         ]);
     }
+
+    public static function mensaje(Router $router) {
+        $router->render('profesor/profesor_mensaje');
+    }
 }

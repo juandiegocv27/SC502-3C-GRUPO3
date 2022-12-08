@@ -76,5 +76,36 @@ class Email {
 
             //Enviar el mail
         $mail->send();
-    }    
+    }  
+    
+    public function enviarConfirmacionProfesor() {
+
+        // create a new object
+        $mail = new PHPMailer();
+        $mail->isSMTP();
+        $mail->Host = 'smtp.mailtrap.io';
+        $mail->SMTPAuth = true;
+        $mail->Port = 2525;
+        $mail->Username = '2a2848e9eb94ad';
+        $mail->Password = 'bdc48d9bacfc64';
+    
+        $mail->setFrom('admin@cangurocr.com');
+        $mail->addAddress('admin@cangurocr.com', 'cangurocr.com');
+        $mail->Subject = 'Confirma tu Cuenta y Cambia tu Contraseña';
+
+        // Set HTML
+        $mail->isHTML(TRUE);
+        $mail->CharSet = 'UTF-8';
+
+        $contenido = '<html>';
+        $contenido .= "<p><strong>Hola " . $this->email .  "</strong>Casa Canguro ha creado tu cuenta, solo debes confirmarla y cambiar tu contraseña presionando el siguiente enlace</p>";
+        $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/recuperar?token=" . $this->token . "'>Confirmar Cuenta y Cambiar Contraseña</a>";        
+        $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje</p>";
+        $contenido .= '</html>';
+        $mail->Body = $contenido;
+
+        //Enviar el mail
+        $mail->send();
+
+   }
 }

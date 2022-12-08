@@ -64,5 +64,5 @@
             <input type="checkbox" id="novedades" name="novedades" value="novedades">
             <label for="novedades"> Quiero recibir novedades sobre los servicios de Canguro Matemático por correo.</label><br> -->
         <input type="submit" value="Registrar cuenta" class="boton boton-verde ">
-    </form>`
+    </form>
 </main>
