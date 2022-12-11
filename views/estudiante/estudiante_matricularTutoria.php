@@ -82,8 +82,8 @@
                                             </p>
                                             
                                             </span>
-                                            <button class="btn btn-primary " type="button" style="width: 100%;" style = "border-radius: 300px;" data-toggle="modal" data-target="#exampleModal">Crear Nueva Tutoría</button>
-                                            <button class="btn btn-primary editbtn" type="button" value = "view" id = <?php echo $obj->id_tutoria?>>Editar</button>
+                                            
+                                            <button class="btn btn-primary editbtn" type="button" value = "view" id = <?php echo $obj->id_tutoria?>>Matricular</button>
                                         </div>
                                     </div>
                                 </div>
@@ -99,97 +99,6 @@
         </div>
     </div>
 </section>
-
-
-    <div class="container-fluid px-0 py-5">
-        <div class="row mx-0 justify-content-center pt-5">
-            <div class="col-lg-6">
-                <div class="section-title text-center position-relative mb-4">
-                    <h1 class="display-4">Lista de Tutorias</h1>
-                </div>
-            </div>
-        </div>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-            <div class="col">
-                <div class="card mb-3 justify-content-center " style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="..." class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Nombre Tutoria</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis tempore autem nisi nihil omnis aut praesentium eos id dicta eum. Explicabo sunt suscipit distinctio nulla tempora aliquam similique totam!</p>
-                                <div class="d-grid gap-3mx-auto">
-                                    <button class="btn btn-primary " type="button">Profesor : Walter Rodriguez</button>
-                                    <button class="btn btn-primary mt-1" type="button">Matricular</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card mb-3 justify-content-center " style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="..." class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Nombre Tutoria</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis tempore autem nisi nihil omnis aut praesentium eos id dicta eum. Explicabo sunt suscipit distinctio nulla tempora aliquam similique totam!</p>
-                                <div class="d-grid gap-3mx-auto">
-                                    <button class="btn btn-primary " type="button">Profesor : Walter Rodriguez</button>
-                                    <button class="btn btn-primary mt-1" type="button">Matricular</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card mb-3 justify-content-center " style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="..." class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Nombre Tutoria</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis tempore autem nisi nihil omnis aut praesentium eos id dicta eum. Explicabo sunt suscipit distinctio nulla tempora aliquam similique totam!</p>
-                                <div class="d-grid gap-3mx-auto">
-                                    <button class="btn btn-primary " type="button">Profesor : Walter Rodriguez</button>
-                                    <button class="btn btn-primary mt-1" type="button">Matricular</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card mb-3 justify-content-center " style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="..." class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Nombre Tutoria</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis tempore autem nisi nihil omnis aut praesentium eos id dicta eum. Explicabo sunt suscipit distinctio nulla tempora aliquam similique totam!</p>
-                                <div class="d-grid gap-3mx-auto">
-                                    <button class="btn btn-primary " type="button">Profesor : Walter Rodriguez</button>
-                                    <button class="btn btn-primary mt-1" type="button">Matricular</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Courses End -->
 
 
 
@@ -231,32 +140,14 @@
                 <div class="col-lg-7">
                     <div class="section-title position-relative mb-4">
                         <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Necesitas Ayuda?</h6>
-                        <h1 class="display-4">Envianos un mensaje</h1>
+                        <h1 class="display-4">Ponéte en contacto con nosotros</h1>
                     </div>
                     <div class="contact-form">
                         <form>
                             <div class="row">
-                                <div class="col-6 form-group">
-                                    <input type="text"
-                                        class="form-control border-top-0 border-right-0 border-left-0 p-0"
-                                        placeholder="Nombre" required="required">
-                                </div>
-                                <div class="col-6 form-group">
-                                    <input type="email"
-                                        class="form-control border-top-0 border-right-0 border-left-0 p-0"
-                                        placeholder="Correo" required="required">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0"
-                                    placeholder="Asunto" required="required">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control border-top-0 border-right-0 border-left-0 p-0" rows="5"
-                                    placeholder="Mensaje" required="required"></textarea>
-                            </div>
-                            <div>
-                                <button class="btn btn-primary py-3 px-5" type="submit">Enviar Mensaje</button>
+                                
+                            <a href="http://www.cangurocr.org/static/img/logo-thumb.gif"> </a>
+                
                             </div>
                         </form>
                     </div>
@@ -305,7 +196,7 @@
         </button>
       </div>
       <div class="modal-body">
-      <form class="formulario row g-3 my-5" method="POST" action="/estudiante_principal" novalidate>
+      <form class="formulario row g-3 my-5" method="POST" action="/profesor_principal" novalidate>
         <div class="col-2"></div>
         <div class="col" >
             <div class="row">

@@ -93,7 +93,7 @@
                                             </p>
                                             
                                             </span>
-                                         
+                                            <button class="btn btn-primary editbtn" type="button" value = "view" id = <?php echo $obj->id_tutoria?>>Editar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -111,41 +111,4 @@
 </section>
 
 
-     <!-- Detail Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="mb-5">
-                        <div class="section-title position-relative mb-5">
-                            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Detalles del Curso</h6>
-                            <h1 class="display-4">Matematica Basica</h1>
-                        </div>
-                        <img class="img-fluid rounded w-100 mb-4" src="/build/img/matebasica.jpg" alt="Image">
-                        <p>En este curso se estudiaran conceptos basicos de la matematica, suma, resta , division y multiplicacion</p>
-                    </div>
-               </div>
-
-                <div class="col-lg-4 mt-5 mt-lg-0">
-                    <div class="bg-primary mb-5 py-3">
-                        <h3 class="text-white py-3 px-4 m-0">Información</h3>
-                        <div class="d-flex justify-content-between border-bottom px-4">
-                            <h6 class="text-white my-3">Descargar Temario</h6>
-                         <a class="btn btn-primary" href="detail.html"> Presione Aqui</a>
-                        </div>
-                        <div class="d-flex justify-content-between border-bottom px-4">
-                            <h6 class="text-white my-3">Linz ZOOM</h6>
-                             <a class="btn btn-primary" href="detail.html"> Presione Aqui</a>
-                        </div>
-                       
-                    </div>
-
-                   
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- Detail End -->
+    
