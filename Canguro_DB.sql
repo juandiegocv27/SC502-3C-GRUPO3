@@ -67,3 +67,9 @@ ALTER TABLE `usuarios` ADD CONSTRAINT `tutoria` FOREIGN KEY (`id_tutoria`) REFER
 -- INSERT INTO usuarios (email, password) VALUES ("test@gmail.com","test");
 -- select * from usuario;
 --id_tutoria para estudiantes creado
+
+
+//cambios para estudiante
+  ALTER TABLE tutorias ADD COLUMN id int(11) null;
+ALTER TABLE `tutorias`
+  ADD CONSTRAINT `usuarios` FOREIGN KEY (`id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

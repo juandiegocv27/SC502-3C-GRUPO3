@@ -35,7 +35,7 @@
     </div>
     <!-- Header End -->
 
-    <!-- Courses Start -->
+    <!-- Courses Start 
  
     <div class="container-fluid px-0 py-5">
         <div class="row mx-0 justify-content-center pt-5">
@@ -136,9 +136,9 @@
             </div>
         </div>
     </div>
-   
+   -->
     <!-- Courses End -->
-
+ 
  <!-- About Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">

@@ -17,6 +17,7 @@ class Tutoria extends ActiveRecord {
     public $fechaTutoria;
     public $enlaceZoom;
     public $id_Profesor;
+    public $id;
 
     public function __construct($args = []) {
         $this->id_tutoria = $args['id_tutoria'] ?? null;
@@ -29,6 +30,7 @@ class Tutoria extends ActiveRecord {
         $this->fechaTutoria = $args['fechaTutoria'] ?? '';
         $this->enlaceZoom = $args['enlaceZoom'] ?? '';
         $this->id_Profesor = $args['id_Profesor'] ?? '';
+        $this->id = $args['id'] ?? '';
     }
 
     // Mensajes de validación para la creación de una cuenta
@@ -70,6 +72,24 @@ class Tutoria extends ActiveRecord {
         return $resultado;
     }
 
+    public function getTutoriasGeneral() {
+        echo '<script>console.log("'. $_SESSION['id'] .'"); </script>';
+        $query = " SELECT * FROM " . self::$tabla ;
+
+        $resultado = self::$db->query($query);
+
+        return $resultado;
+    }
+
+    public function getTutoriasbyEstudiante() {
+        echo '<script>console.log("'. $_SESSION['id'] .'"); </script>';
+        $query = " SELECT * FROM " . self::$tabla . " WHERE id = " . $_SESSION['id'];
+
+        $resultado = self::$db->query($query);
+
+        return $resultado;
+    }
+
     public function existeTutoria() {
         $query = " SELECT * FROM " . self::$tabla . " WHERE id_tutoria = '" . $this->id_tutoria . "' LIMIT 1";
 
@@ -83,6 +103,27 @@ class Tutoria extends ActiveRecord {
     }
 
     public function actualizarTutoria(){
+        // Sanitizar los datos
+        $atributos = $this->sanitizarAtributos();
+
+        // Iterar para ir agregando cada campo de la BD
+        $valores = [];
+        foreach($atributos as $key => $value) {
+            $valores[] = "{$key}='{$value}'";
+        }
+
+        // Consulta SQL
+        $query = "UPDATE " . static::$tabla ." SET ";
+        $query .=  join(', ', $valores );
+        $query .= " WHERE id_tutoria = '" . self::$db->escape_string($this->id_tutoria) . "' ";
+        $query .= " LIMIT 1 "; 
+
+        // Actualizar BD
+        $resultado = self::$db->query($query);
+        return $resultado;
+    }
+
+    public function Matricula(){
         // Sanitizar los datos
         $atributos = $this->sanitizarAtributos();
 

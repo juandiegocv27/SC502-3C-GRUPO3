@@ -109,7 +109,7 @@ include 'templates/navbar.php';
 <!-- FPor qué elegirnos? Final -->
 
 
-<!-- Carousel Cursos Inicio -->
+<!-- Carousel Cursos Inicio 
 <div class="container-fluid px-0 py-5">
     <div class="row mx-0 justify-content-center pt-5">
         <div class="col-lg-6">
@@ -212,6 +212,7 @@ include 'templates/navbar.php';
         </div>
     </div>
 </div>
+-->
 <!-- Carousel Cursos Final -->
 
 

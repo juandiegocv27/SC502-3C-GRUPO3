@@ -45,6 +45,72 @@
        
     <!-- Courses End -->
 
+    <!-- INICIO LISTA DE CURSOS -->
+
+    <section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col my-4">
+            <h1 class="display-4">Lista de Tutorias</h1>    
+         </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <?php
+                                use Model\Tutoria;
+                                use Model\Usuario;
+                                $usuarios = new Usuario($_GET);
+                                    $tuto = new Tutoria($_GET);
+                                    $resultado = $tuto->getTutoriasbyEstudiante();
+                                    $contador = 0;
+                                    while (($obj = mysqli_fetch_object($resultado))) {
+                                        
+                                    
+                                ?> 
+                                <span id = "idM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->id_tutoria ?> </span>
+                                <span id = "nombreM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->nombre ?> </span>
+                                <span id = "descripcionM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->descripcion ?> </span>
+                                <span id = "materialM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->material ?> </span>
+                                <span id = "tipoM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->tipo ?> </span>
+                                <span id = "nivelM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->nivel ?> </span>
+                                <span id = "fechaTutoriaM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->fechaTutoria ?> </span>
+                                <span id = "enlaceZoomM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->enlaceZoom ?> </span>
+                                <span id = "id2M<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->id ?> </span>
+
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=42b2d9ae6feb9c4ff98b9133addfb698">
+                                        <div class="card-body">
+                                            <h4 class="card-title"><?php echo $obj->nombre .' ('.$obj->id_tutoria.')' ?></h4>
+                                            <p class="card-text">Descripción: <?php echo $obj->descripcion ?></p>
+                                            <p class="card-text">
+                                                
+                                                Tipo: <span id = "tipoM<?php echo $obj->id_tutoria?>"> <?php echo $obj->tipo ?> </span> <br> Nivel: <?php echo $obj->nivel ?> <br>
+                                                <a href="<?php echo $obj->enlaceZoom ?>">Enlace de Zoom</a> <br> Fecha: <?php echo $obj->fechaTutoria ?>
+                                            </p>
+                                            
+                                            </span>
+                                         
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <?php }?>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
      <!-- Detail Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
@@ -79,4 +145,7 @@
             </div>
         </div>
     </div>
+
+
+
     <!-- Detail End -->
