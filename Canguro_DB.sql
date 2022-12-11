@@ -59,6 +59,8 @@ ALTER TABLE `usuarios`
   ADD CONSTRAINT `tutoria` FOREIGN KEY (`id_Tutoria`) REFERENCES `tutorias` (`id_tutoria`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
+ALTER TABLE tutorias ADD COLUMN id_Profesor int(11) null;
+
 ALTER TABLE `tutorias`
   ADD CONSTRAINT `profesor` FOREIGN KEY (`id_Profesor`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
   
@@ -71,5 +73,3 @@ ALTER TABLE `usuarios` ADD CONSTRAINT `tutoria` FOREIGN KEY (`id_tutoria`) REFER
 
 //cambios para estudiante
   ALTER TABLE tutorias ADD COLUMN id int(11) null;
-ALTER TABLE `tutorias`
-  ADD CONSTRAINT `usuarios` FOREIGN KEY (`id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
