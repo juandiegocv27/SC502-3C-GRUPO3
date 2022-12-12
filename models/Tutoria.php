@@ -96,7 +96,7 @@ class Tutoria extends ActiveRecord {
         $resultado = self::$db->query($query);
 
         if($resultado->num_rows) {
-            self::$alertas['error'][] = 'El Usuario ya esta registrado';
+            self::$alertas['error'][] = 'El Usuario ya esta registrado'; // Cambiar el mensaje 
         }
 
         return $resultado;

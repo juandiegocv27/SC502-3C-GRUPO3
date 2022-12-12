@@ -24,7 +24,9 @@ class LoginController {
                         session_start();
 
                         $_SESSION['id'] = $usuario->id;
-                        $_SESSION['nombre'] = $usuario->nombre . " " . $usuario->apellido1;
+                        $_SESSION['nombre'] = $usuario->nombre;
+                        $_SESSION['apellido1'] = $usuario->apellido1;
+                        $_SESSION['apellido2'] = $usuario->apellido2;
                         $_SESSION['email'] = $usuario->email;
                         $_SESSION['login'] = true;
 
@@ -111,7 +113,6 @@ class LoginController {
         }elseif ($usuario->confirmado == "0" &&  $usuario->rol == "2"){
             // Modificar a usuario confirmado
             $usuario->confirmado = "1";
-            // Usuario::setAlerta('exito', 'Cuenta Comprobada Correctamente');
         }
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
