@@ -196,7 +196,7 @@
         </button>
       </div>
       <div class="modal-body">
-      <form class="formulario row g-3 my-5" method="POST" action="/estudiante_principal" novalidate>
+      <form class="formulario row g-3 my-5" method="POST" action="/profesor_principal" novalidate>
         <div class="col-2"></div>
         <div class="col" >
             <div class="row">
