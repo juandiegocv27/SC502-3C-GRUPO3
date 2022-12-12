@@ -73,7 +73,6 @@ class AdminController {
                      // Crear el usuario
                      $resultado = $usuario->guardar();
 
- 
                      if($resultado) {
                          header('Location: /admin_mensaje');
                      }

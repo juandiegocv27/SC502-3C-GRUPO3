@@ -26,7 +26,12 @@
 
 
     <!-- inicioPERFIL -->
-    <div class="container-fluid main" style="height: 100vh; padding-left: 0px">
+    <main class="contenedor seccion contenido-centrado"> 
+
+        <?php
+            include_once __DIR__ . "/../templates/alertas.php";
+        ?>
+
         <div class="d-flex justify-content-center" style="height: 100%">
             <div class="col-md-9">
                 <div class="container content clear-fix">
@@ -45,45 +50,42 @@
 
                         <div class="col-md-9">
                             <div class="container">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="fullName">Nombre Completo</label>
-                                        <input type="text" class="form-control" id="fullName" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Correo</label>
-                                        <input type="email" class="form-control" id="email" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="pass">Password</label>
-                                        <input type="password" class="form-control" id="pass" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="birthday">Fecha de Nacimiento</label>
-                                        <input type="date" class="form-control" id="birthday" />
-                                    </div>
 
-                                    <div class="row mt-5">
-                                        <div class="col">
-                                            <button type="button" class="btn btn-primary btn-block">
-                                                Guardar
-                                            </button>
-                                        </div>
+                            <form class="formulario row g-3 my-5" method="POST" action="/estudiante_perfil" novalidate>
+                             
+                             <label for="nombre">Nombre</label>
+                             <input type="text" name="nombre" placeholder="Tu Nombre" id="nombre" value="<?php echo $usuario->nombre ?>">
+                            
+                             <label for="apellido1">Primer Apellido</label>
+                             <input type="text" name="apellido1" placeholder="Tu Primer Apellido" id="apellido1" value="<?php echo $usuario->apellido1 ?>">
 
-                                        <div class="col">
-                                            <button type="button" class="btn btn-default btn-block">
-                                                Cancel
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
+                             <label for="apellido2">Segundo Apellido</label>
+                             <input type="text" name="apellido2" placeholder="Tu Segundo Apellido" id="apellido2" value="<?php echo $usuario->apellido2 ?>">
+
+                             <label for="cedula">Cédula</label>
+                             <input type="text" name="cedula" placeholder="Tu Número de Cédula" id="cedula" value="<?php echo $usuario->cedula  ?>">
+
+                             <label for="email">E-mail</label>
+                             <input type="email" name="email" placeholder="Tu Email" id="email" value="<?php echo $usuario->email?>" readonly>
+                 
+                             <label for="fechaNacimiento">Fecha de nacimiento</label>
+                             <input type="datetime-local" id="fechaNacimiento" name="fechaNacimiento" value="<?php echo date("Y-m-d", strtotime($usuario->fechaNacimiento)); ?>"/>
+
+                             <label for="telefono">Teléfono</label>
+                             <input type="tel" id="phtelefonoone" placeholder="99999999" name="telefono" pattern="[0-9]{8}" value="<?php echo $usuario->telefono  ?>">
+
+                             <label for="direccion">Dirección</label>
+                             <input type="text" name="direccion" placeholder="Tu Dirección" id="direccion" value="<?php echo $usuario->direccion  ?>">
+                         
+                         <input type="submit" value="Guardar" class="boton boton-verde ">
+                     </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+</main>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

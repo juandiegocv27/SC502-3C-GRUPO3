@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Model\Tutoria;
+use Model\Usuario;
 use MVC\Router;
 
 class ProfesorController {
@@ -35,10 +36,28 @@ class ProfesorController {
 
     public static function perfil (Router $router) {
         session_start();
-
         isProf();
- 
+        
+        $usuario = new Usuario();
+        $usuario = Usuario::where('id', $_SESSION['id']);
+        $alertas = []; 
+       
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $usuario->sincronizar($_POST);
+            $alertas = $usuario->validarNuevaCuenta();
+
+            // Revisar que alerta este vacio
+            if(empty($alertas)) {
+                $resultado = $usuario->actualizar();
+                Usuario::setAlerta('exito', 'Se han registrado los nuevos datos correctamente'); 
+            }
+        }
+        
+        $alertas = Usuario::getAlertas();
+        
         $router->render('profesor/profesor_perfil', [
+            'usuario' => $usuario,
+            'alertas' => $alertas,
             'nombre' => $_SESSION['nombre'],
             'id' => $_SESSION['id']
         ]);

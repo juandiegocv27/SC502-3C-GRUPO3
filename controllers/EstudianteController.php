@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Model\Tutoria;
 use MVC\Router;
+use Model\Usuario;
 
 class EstudianteController {
     public static function index (Router $router) {
@@ -45,21 +46,38 @@ class EstudianteController {
         isStud();
 
         $router->render('estudiante/estudiante_calendario');
-     }
+    }
 
     public static function perfil (Router $router) {
        session_start();
-
-       isAuth();
+        //    isAuth();
        isStud();
 
-    $router->render('estudiante/estudiante_perfil', [
-        'nombre' => $_SESSION['nombre'],
-        'id' => $_SESSION['id']
-    ]);
+       $usuario = new Usuario();
+       $usuario = Usuario::where('id', $_SESSION['id']);
+       $alertas = []; 
+       
+       if($_SERVER['REQUEST_METHOD'] === 'POST') {
+           $usuario->sincronizar($_POST);
+           $alertas = $usuario->validarNuevaCuenta();
 
+           // Revisar que alerta este vacio
+           if(empty($alertas)) {
+                $resultado = $usuario->actualizar();
+                Usuario::setAlerta('exito', 'Se han registrado los nuevos datos correctamente'); 
+            }
+        }
+
+        $alertas = Usuario::getAlertas();
+
+        $router->render('estudiante/estudiante_perfil', [
+            'usuario' => $usuario,
+            'alertas' => $alertas,
+            'nombre' => $_SESSION['nombre'],
+            'id' => $_SESSION['id']
+        ]);
  
-}
+    }
 
 
 public static function Matricular (Router $router) {

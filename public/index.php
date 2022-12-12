@@ -49,11 +49,13 @@ $router->GET('/estudiante_informacionTutorias',[EstudianteController::class,'inf
 $router->GET('/estudiante_matricularTutoria',[EstudianteController::class,'matricular']);
 $router->GET('/estudiante_calendario',[EstudianteController::class,'calendario']);
 $router->GET('/estudiante_perfil',[EstudianteController::class,'perfil']);
+$router->POST('/estudiante_perfil',[EstudianteController::class,'perfil']);
 
 //Profesor
 $router->POST('/profesor_principal',[ProfesorController::class,'index']);
 $router->GET('/profesor_principal',[ProfesorController::class,'index']);
 $router->GET('/profesor_perfil',[ProfesorController::class,'perfil']);
+$router->POST('/profesor_perfil',[ProfesorController::class,'perfil']);
 $router->GET('/profesor_reportes',[ProfesorController::class,'reportes']);
 $router->GET('/profesor_calendario',[ProfesorController::class,'calendario']);
 $router->GET('/profesor_mensaje',[ProfesorController::class,'mensaje']);
