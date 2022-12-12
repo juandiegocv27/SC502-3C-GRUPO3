@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Model\Tutoria;
 use MVC\Router;
 
 class EstudianteController {
@@ -10,6 +11,23 @@ class EstudianteController {
 
         isAuth();
         isStud();
+        
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $tutoria = new Tutoria;
+            $tutoria->sincronizar($_POST);
+            $tutoria->id = $_SESSION['id'];
+            $tutoria->nombre = $_SESSION['nombre'];
+            $alertas = $tutoria->validarNuevaCuenta();
+            
+            if(empty($alertas)) {
+                $resultado = $tutoria->existeTutoria();
+                if($resultado->num_rows) {
+                    $tutoria->actualizarTutoria();
+                } else {
+                    $tutoria->crear();
+                }
+            }
+        }
 
  
         $router->render('estudiante/estudiante_principal', [

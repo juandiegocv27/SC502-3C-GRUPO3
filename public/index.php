@@ -43,6 +43,7 @@ $router->GET('/mensaje',[LoginController::class,'mensaje']);
 
 //Areas por tipo de usuario
 //Estudiante
+$router->POST('/estudiante_principal',[EstudianteController::class,'index']);
 $router->GET('/estudiante_principal',[EstudianteController::class,'index']);
 $router->GET('/estudiante_informacionTutorias',[EstudianteController::class,'informacion']);
 $router->GET('/estudiante_matricularTutoria',[EstudianteController::class,'matricular']);

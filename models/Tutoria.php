@@ -5,7 +5,7 @@ namespace Model;
 class Tutoria extends ActiveRecord {
     //Base Datos
     protected static $tabla = 'tutorias';
-    protected static $columnasDB = ['id_tutoria','nombre','descripcion','material','tipo','nivel','profesorNombre','fechaTutoria','enlaceZoom', 'id_Profesor'];
+    protected static $columnasDB = ['id_tutoria','nombre','descripcion','material','tipo','nivel','profesorNombre','fechaTutoria','enlaceZoom', 'id_Profesor','id'];
     
     public $id_tutoria;
     public $nombre;
