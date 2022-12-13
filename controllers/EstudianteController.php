@@ -10,7 +10,7 @@ class EstudianteController {
     public static function index (Router $router) {
         session_start();
 
-        isAuth();
+        // isAuth();
         isStud();
         
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -50,7 +50,6 @@ class EstudianteController {
 
     public static function perfil (Router $router) {
        session_start();
-        //    isAuth();
        isStud();
 
        $usuario = new Usuario();
@@ -80,11 +79,24 @@ class EstudianteController {
     }
 
 
-public static function Matricular (Router $router) {
+public static function matricular (Router $router) {
     session_start();
-
-    isAuth();
     isStud();
+
+    $tutoria = new Tutoria;
+    $tutoria = Tutoria::where('id_tutoria', $_SESSION['id_tutoria']);
+    $alertas = []; 
+
+    // debuguear($_SESSION['id_tutoria']);
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $tutoria->id = "5";
+        // debuguear($tutoria);
+
+        // if(empty($alertas)) {
+        //     $resultado =  $tutoria->actualizarTutoria();
+        // }
+    }
 
  $router->render('estudiante/estudiante_matricularTutoria', [
      'nombre' => $_SESSION['nombre'],
@@ -94,11 +106,27 @@ public static function Matricular (Router $router) {
 
 }
 
-public static function Informacion (Router $router) {
+public static function informacion (Router $router) {
     session_start();
 
-    isAuth();
+   // isAuth();
     isStud();
+
+    $tutoria = new Tutoria;
+    $tutoria = Tutoria::where('id', $_SESSION['id']);
+    $alertas = []; 
+
+    
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $tutoria->sincronizar($_POST);
+        $alertas = $tutoria->validarNuevaCuenta();
+        // debuguear($tutoria);
+
+        if(empty($alertas)) {
+            $resultado =  $tutoria->actualizarTutoria();
+        }
+    }
 
  $router->render('estudiante/estudiante_informacionTutorias', [
      'nombre' => $_SESSION['nombre'],
