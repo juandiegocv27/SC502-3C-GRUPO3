@@ -10,6 +10,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
+                <a href="/estudiante_principal" class="nav-item nav-link active">Principal</a>
                     <a href="/estudiante_informacionTutorias" class="nav-item nav-link ">Mis Tutorias</a>
                     <a href="/estudiante_matricularTutoria" class="nav-item nav-link ">Matricular Tutorias</a>
                     <a href="/estudiante_calendario" class="nav-item nav-link">Calendario</a>
@@ -55,7 +56,8 @@
                                     $tuto = new Tutoria($_GET);
                                     $resultado = $tuto->getTutoriasGeneral();
                                     $contador = 0;  
-                                       
+                                    // debuguear($resultado);
+
                                                               
                                     while (($obj = mysqli_fetch_object($resultado))) {
                                 ?> 
@@ -66,9 +68,10 @@
                                 <span id = "tipoM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->tipo ?> </span>
                                 <span id = "nivelM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->nivel ?> </span>
                                 <span id = "fechaTutoriaM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->fechaTutoria ?> </span>
+                                <span id = "profesorNombre<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->profesorNombre ?> </span>
+                                <span id = "id_Profesor<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->id_Profesor ?> </span>
                                 <span id = "enlaceZoomM<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->enlaceZoom ?> </span>
-                                <span id = "id2M<?php echo $obj->id_tutoria?>" hidden> <?php echo $obj->id ?> </span>
-                                
+                                <span id = "id<?php echo $obj->id_tutoria?>" hidden> <?php echo $_SESSION['id'] ?> </span>
                                
 
                                 <div class="col-md-4 mb-3">
@@ -79,15 +82,13 @@
                                             <p class="card-text">Descripción: <?php echo $obj->descripcion ?></p>
                                             <p class="card-text">
                                                 
-                                                Tipo: <span id = "tipoM<?php echo $obj->id_tutoria?>"> <?php echo $obj->tipo ?> </span> <br> Nivel: <?php echo $obj->nivel ?> <br>
+                                                Tipo: <span id = "tipoM<?php echo $obj->id_tutoria?>"> <?php echo $obj->tipo ?> </span> <br> Nivel: <?php echo $obj->nivel ?> <br> Profesor: <?php echo $obj->profesorNombre ?> <br>
+                                               
                                                 <a href="<?php echo $obj->enlaceZoom ?>">Enlace de Zoom</a> <br> Fecha: <?php echo $obj->fechaTutoria ?>
                                             </p>
                                             
                                             </span>
-                                            <form method="POST" action="/estudiante_matricularTutoria">
-                                                                
-                                                 <input type="button" value = "Matricular" class="boton boton-verde" id = <?php echo $obj->id_tutoria?>>
-                                            </form>
+                                            <input type="button" value = "Matricular" class="boton editbtn" id = <?php echo $obj->id_tutoria?>>
                                         </div>
                                     </div>
                                 </div>
@@ -164,30 +165,79 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <!-- Contact End -->
 
-    
-    <script>
+<script>
     $(document).ready(function(){
         $('.editbtn').on('click', function(){
             
             var id = $(this).attr("id");
-            console.log(id); //imprime el id de la tutoria que le hacemos click
-             $_SESSION['id_tutoria'] = id; 
-            // $('#id_tutoria').val($('#idM' + id).text().trim());
-            // $('#nombre').val($('#nombreM' + id).text().trim());
-            // $('#descripcion').val($('#descripcionM' + id).text().trim());
-            // $('#material').val($('#materialM' + id).text().trim());
-            // $('#tipo').val($('#tipoM' + id).text().trim());
-            // $('#nivel').val($('#nivelM' + id).text().trim());
-            // $('#fechaTutoria').val($('#fechaTutoriaM' + id).text().trim());
-            // $('#enlaceZoom').val($('#enlaceZoomM' + id).text().trim());
-            // $('#id').val($('#id2M' + id).text().trim());
-            
-            // $('#exampleModal').modal('show');
+            console.log(id);
+            $('#id_tutoria').val($('#idM' + id).text().trim());
+            $('#nombre').val($('#nombreM' + id).text().trim());
+            $('#descripcion').val($('#descripcionM' + id).text().trim());
+            $('#material').val($('#materialM' + id).text().trim());
+            $('#tipo').val($('#tipoM' + id).text().trim());
+            $('#nivel').val($('#nivelM' + id).text().trim());              
+            $('#profesorNombre').val($('#profesorNombre' + id).text().trim());
+            $('#id_Profesor').val($('#id_Profesor' + id).text().trim());
+            $('#fechaTutoria').val($('#fechaTutoriaM' + id).text().trim());
+            $('#enlaceZoom').val($('#enlaceZoomM' + id).text().trim());
+            $('#id').val($('#id' + id).text().trim());
+
+            $('#exampleModal').modal('show');
         })
     })
 </script>
 
-
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nueva Tutoria</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form class="formulario row g-3 my-5" method="POST" action="/estudiante_matricularTutoria" novalidate>
+        <div class="col-2"></div>
+        <div class="col" >
+            <div class="row">
+            <label for="mensaje">Desea matricular esta tutoría?</label>
+                <input type="number" name="id_tutoria" placeholder="Un ID" id="id_tutoria" hidden>
+            </div><div class="row">
+                <input type="text" name="nombre" placeholder="Tu Nombre" id="nombre" hidden>
+            </div>  <div class="row">  
+                <input type="text" name="descripcion" placeholder="Describe la tutoría" id="descripcion" hidden>
+            </div>  <div class="row">
+                <input type="text" name="material" placeholder="¿Qué libro se utulizará?" id="material" hidden>
+            </div>  <div class="row">
+                <input type="text" name="tipo" placeholder="Tipo de tutoría" id="tipo" hidden>
+            </div>  <div class="row">
+                <input type="text" id="nivel" placeholder="Bajo-Medio-Alto" name="nivel" hidden>
+            </div> <div class="row">
+                <input type="text" id="profesorNombre" placeholder="Profesor" name="profesorNombre" hidden>
+            </div> <div class="row">
+                <input type="datetime-local" id="fechaTutoria" name="fechaTutoria" hidden>
+            </div>  <div class="row">
+                <input type="text" name="enlaceZoom" placeholder="Enlace para la tutoría" id="enlaceZoom" hidden>
+            </div>
+            <div class="row">
+                <input type="text" id="id_Profesor" placeholder="ID_Profesor" name="id_Profesor" hidden>
+            </div> <div class="row">
+                <input type="text" name="id" placeholder="id" id="id" hidden>
+            </div>
+            
+        </div>
+        <div class="col-1"></div>
+        <div class="row">
+            <div class="col offset-3">
+                <input type="submit" value = "Matricular Tutoría" class="boton boton-verde">
+                <button type="button" class="boton boton-rojo" data-dismiss="modal">Cancelar</button></div>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+</div>

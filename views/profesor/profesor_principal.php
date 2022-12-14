@@ -171,8 +171,7 @@
         <div class="col-2"></div>
         <div class="col" >
             <div class="row">
-                <label for="id_tutoria">ID Tutoria</label>
-                <input type="number" name="id_tutoria" placeholder="Un ID" id="id_tutoria">
+                <input type="number" name="id_tutoria" placeholder="Un ID" id="id_tutoria" hidden>
             </div><div class="row">
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" placeholder="Tu Nombre" id="nombre">
