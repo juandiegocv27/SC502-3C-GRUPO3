@@ -123,6 +123,56 @@ class Tutoria extends ActiveRecord {
         return $resultado;
     }
 
+    public function actualizarTutoria2(){
+
+        // Sanitizar los datos
+
+        $atributos = $this->sanitizarAtributos();
+
+       // debuguear( $atributos );
+
+        // Iterar para ir agregando cada campo de la BD
+
+        $valores = [];
+
+        $test= $_SESSION['id'];
+
+        foreach($atributos as $key => $value) {
+
+            $valores[] = "{$key}='{$value}'";
+
+        }
+
+
+
+        // Consulta SQL
+
+        $query = "UPDATE " . static::$tabla ." SET ";
+
+        $query .=  join(', ', $valores );
+
+        $query .=  ", id='$test'";
+
+        $query .= " WHERE id_tutoria = '" . self::$db->escape_string($this->id_tutoria) . "' ";
+
+        $query .= " LIMIT 1 ";
+
+
+
+
+
+        // Actualizar BD
+
+       
+
+        $resultado = self::$db->query($query);
+
+       
+
+        return $resultado;
+
+    }
+
     public function Matricula(){
         // Sanitizar los datos
         $atributos = $this->sanitizarAtributos();

@@ -27,15 +27,22 @@
     <link href='/build/lib/fullCalendar/main.css' rel='stylesheet' />
     <script src='/build/lib/fullCalendar/main.js'></script>
     <script>
-
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth'
+                initialView: "dayGridMonth",
+                headerToolbar: {
+                left: "prev,next today",
+                center: "title",
+                right: "dayGridMonth,timeGridWeek,timeGridDay"},
+                events: [
+                {
+                    title: "All Day Event",
+                    start: "2022-12-01"
+                }]
             });
             calendar.render();
         });
-
     </script>
 </head>
 

@@ -83,20 +83,18 @@ public static function matricular (Router $router) {
     session_start();
     isStud();
 
-    $tutoria = new Tutoria;
-    $tutoria = Tutoria::where('id_tutoria', $_SESSION['id_tutoria']);
-    $alertas = []; 
+  //  $tutoria = Tutoria::where('id_tutoria', $_SESSION['id_tutoria']);
+  $tutoria = new Tutoria;
+  $alertas = []; 
 
-    // debuguear($_SESSION['id_tutoria']);
-
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $tutoria->id = "5";
+  if($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $tutoria->sincronizar($_POST);
+      $alertas = $tutoria->validarNuevaCuenta();
         // debuguear($tutoria);
-
-        // if(empty($alertas)) {
-        //     $resultado =  $tutoria->actualizarTutoria();
-        // }
-    }
+      if(empty($alertas)) {
+          $resultado =  $tutoria->actualizarTutoria2();
+      }
+  }
 
  $router->render('estudiante/estudiante_matricularTutoria', [
      'nombre' => $_SESSION['nombre'],
@@ -116,12 +114,9 @@ public static function informacion (Router $router) {
     $tutoria = Tutoria::where('id', $_SESSION['id']);
     $alertas = []; 
 
-    
-
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $tutoria->sincronizar($_POST);
         $alertas = $tutoria->validarNuevaCuenta();
-        // debuguear($tutoria);
 
         if(empty($alertas)) {
             $resultado =  $tutoria->actualizarTutoria();
