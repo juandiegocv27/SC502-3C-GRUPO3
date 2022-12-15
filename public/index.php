@@ -24,6 +24,8 @@ $router->GET('/index_inscripcion',[LoginController::class,'inscripcion']);
 $router->GET('/index_nuestraAsociacion',[LoginController::class,'nuestraAsociacion']);
 $router->GET('/index_patrocinadores',[LoginController::class,'Patrocinadores']);
 $router->GET('/index_reglamento',[LoginController::class,'Reglamento']);
+$router->GET('/descargaFile',[LoginController::class,'descargar']);
+
 $router->GET('/index_inicioSesion',[LoginController::class,'inicioSesion']);
 
 // Recuperar Password
