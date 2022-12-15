@@ -193,4 +193,17 @@ class Tutoria extends ActiveRecord {
         $resultado = self::$db->query($query);
         return $resultado;
     }
+    public function eliminarTutoria($id_tutoria){
+        $query = " SELECT * FROM " . self::$tabla . " WHERE id_tutoria = '" . $id_tutoria . "' LIMIT 1";
+
+        $resultado = self::$db->query($query);
+
+        if($resultado->num_rows) {
+            $queryelim = "DELETE FROM "  . static::$tabla . " WHERE id_tutoria = " . $id_tutoria;
+            $resul = self::$db->query($queryelim);
+            return $resul;
+        }
+
+        return $resultado;
+    }
 }

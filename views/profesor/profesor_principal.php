@@ -97,7 +97,7 @@
                                             </span>
                                             <button class="btn btn-primary estbtn" type="button" value = "view" id = <?php echo $obj->id_tutoria?> >Estudiantes</button>
                                             <button class="btn btn-primary editbtn" type="button" value = "view" id = <?php echo $obj->id_tutoria?>>Editar</button>
-                                            
+                                            <button class="btn btn-primary elmbtn" type="button" value = "view" id = <?php echo $obj->id_tutoria?>>Eliminar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -117,6 +117,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 
 <script>
     $(document).ready(function(){
@@ -155,6 +156,19 @@
     })
 </script>
 
+<script>
+$(document).ready(function(){
+        $('.elmbtn').on('click', function(){
+            
+            var id = $(this).attr("id");
+            console.log(id);
+            $('#delete_tutoria').val($('#idM' + id).text().trim());
+            
+            $('#eliminarModal').modal('show');
+        })
+    })
+</script>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -171,8 +185,10 @@
         <div class="col-2"></div>
         <div class="col" >
             <div class="row">
-                <input type="number" name="id_tutoria" placeholder="Un ID" id="id_tutoria" hidden>
-            </div><div class="row">
+                <label for="id_tutoria">ID Tutoria</label>
+                <input type="number" name="id_tutoria" placeholder="Un ID" id="id_tutoria">
+            </div>
+            <div class="row">
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" placeholder="Tu Nombre" id="nombre">
             </div>  <div class="row">  
@@ -229,6 +245,38 @@
       <div class="row offset-4">
             <button type="button" class="boton boton-verde" data-dismiss="modal">Aceptar</button>
         </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nueva Tutoria</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form class="formulario row g-3 my-5" method="POST" action="/profesor_principal" novalidate>
+        <div class="col-2"></div>
+        <div class="col" >
+            <h2>¿Quiere Eliminar esta tutoría?</h2>
+            <div class="row" hidden>
+                <label for="delete_tutoria">ID Tutoria</label>
+                <input type="number" name="delete_tutoria" placeholder="Un ID" id="delete_tutoria">
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <div class="row">
+            <div class="col offset-3">
+                <input type="submit" value = "Eliminar Tutoria" class="boton boton-verde">
+                <button type="button" class="boton boton-rojo" data-dismiss="modal">Cancelar</button></div>
+        </div>
+    </form>
     </div>
   </div>
 </div>
