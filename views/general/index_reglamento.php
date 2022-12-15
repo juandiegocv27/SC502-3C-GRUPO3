@@ -100,7 +100,8 @@
                         <ul>
                             <li> Para resolver cualquier incidencia que se produzca durante el desarrollo del Concurso se podrá llamar a los teléfonos siguientes: 8711 97 53 (Lic. María Inés Gómez Jiménez) ó 8359 39 73 (PhD. Mario Marín). </li>
                             <li> Con el objeto de velar por el buen orden del Concurso, los miembros de la Asociación Canguro Matemático se reservan el derecho de comprobar el desarrollo del concurso por el medio que se considere más conveniente. </li>
-                            <li> Si desea una copia del reglamento puede descargarlo aquí.</li>
+                            <li> Si desea una copia del reglamento puede descargarlo <a href="descargaFile.php?file=reglamento.pdf" >aquí </a>.</li>
+                            <li> Si desea una copia del reglamento puede descargarlo <a download="descarga" href="./reglamento.pdf" >aquí </a>.</li>
                         </ul>
                 </div>
             </div>

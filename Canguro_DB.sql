@@ -70,6 +70,10 @@ ALTER TABLE `usuarios` ADD CONSTRAINT `tutoria` FOREIGN KEY (`id_tutoria`) REFER
 -- select * from usuario;
 --id_tutoria para estudiantes creado
 
+select * from usuarios;
+update usuarios set rol=1 where id=1;  
+
+
 
 //cambios para estudiante
   ALTER TABLE tutorias ADD COLUMN id int(11) null;
